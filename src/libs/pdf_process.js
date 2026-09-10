@@ -2,6 +2,7 @@ import { jsPDF } from 'jspdf';
 import { refreshProcessStatus, text2img, sleep } from './public.js';
 import { ans_config, drm_config } from './common.js';
 import { generateUserID } from './rsa_drm.js';
+import { addPdfImage } from './pdf_image.js';
 
 /**
  * 借助jsPDF，进行PDF的生成
@@ -41,28 +42,22 @@ export default async function(img_list, filename, answer_list){
  */
 async function addPPT(index, doc, img_list, answer_list){
     console.log(`雨课堂课件PDF下载工具：第 ${index+1} 页 - PPT`);
-    doc.addImage({
-        imageData: img_list[index].url,
-        format: 'PNG',
+    await addPdfImage(doc, img_list[index], {
         x: 0,
         y: 0,
         width: img_list[index].width,
-        height: img_list[index].height,
-        compression: 'FAST'
+        height: img_list[index].height
     });
     if (ans_config.enabled){
         let answer_item = answer_list.find(obj => obj.index == index);
         if (answer_item && answer_item.ans != "") {
             let answer_img = text2img(answer_item.ans, ans_config.fontSize, ans_config.fontColor);
             console.log(`雨课堂课件PDF下载工具：第 ${index+1} 页 - 答案 - ${answer_item.ans}`);
-            doc.addImage({
-                imageData: answer_img.url,
-                format: 'PNG',
+            await addPdfImage(doc, answer_img, {
                 x: img_list[index].width - answer_img.width - ans_config.right,
                 y: ans_config.up,
                 width: answer_img.width,
-                height: answer_img.height,
-                compression: 'FAST'
+                height: answer_img.height
             });
         }
     }

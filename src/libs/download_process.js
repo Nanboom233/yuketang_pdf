@@ -27,7 +27,7 @@ export default function (el_dialog, url_type = 1){
             if (url_slides.length > 0){
                 refreshProcessStatus("处理图片...");
                 console.groupCollapsed("雨课堂课件PDF下载工具：处理图片...");
-                image_process(url_slides)
+                return image_process(url_slides)
                     .then(async img_list => {
                     console.groupEnd();
                     refreshProcessStatus("生成PDF...");
@@ -42,7 +42,10 @@ export default function (el_dialog, url_type = 1){
                         throw err;
                     });
                     refreshProcessStatus(false);
-                })
+                }).catch(err => {
+                    console.error(err);
+                    refreshProcessStatus(false);
+                });
             } else{
                 refreshProcessStatus(false);
                 refreshHeaderMessage("没有提取到图片", 'Warn');
@@ -55,7 +58,7 @@ export default function (el_dialog, url_type = 1){
             if (html_slides){
                 refreshProcessStatus("处理HTML...");
                 //HTML转图片
-                html2canvas_hd().then(async img_list => {
+                return html2canvas_hd().then(async img_list => {
                     refreshProcessStatus("生成PDF...");
                     await sleep(200);
                     var ppt_name = document.getElementsByClassName("ppt_name")[0].innerText;
@@ -68,7 +71,10 @@ export default function (el_dialog, url_type = 1){
                         throw err;
                     });
                     refreshProcessStatus(false);
-                })
+                }).catch(err => {
+                    console.error(err);
+                    refreshProcessStatus(false);
+                });
             } else{
                 refreshProcessStatus(false);
                 refreshHeaderMessage("没有提取到图片", 'Warn');

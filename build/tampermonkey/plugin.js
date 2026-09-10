@@ -14,10 +14,12 @@ const require_source = require_sources[3]
 
 function getAtRequires(source="jsdelivr", mode="dev") {
     let requires = JSON.parse(fs.readFileSync(path.resolve(__dirname, './requires_hash.json'), 'utf-8'));
-    return requires.map(r => ({
-        "url": r[mode][source],
-        "hash": r[mode]["hash"]
-    }));
+    return requires.map(r => {
+        // 75CDN 尚未提供 jsPDF 4.2.1；不要全局换源影响旧 html2canvas。
+        let selected = r.name === 'jspdf' ? 'cdnjs' : source;
+        if (!r[mode][selected] || !r[mode].hash) throw new Error(`Missing verified CDN: ${r.name}.${mode}.${selected}`);
+        return { url: r[mode][selected], hash: r[mode].hash };
+    });
 }
 
 function createNewChromeDevelopApi(template){

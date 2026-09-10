@@ -2,7 +2,7 @@
 // @name         Rain Classroom PDF Direct Download
 // @name:zh-CN   雨课堂课件PDF下载工具
 // @namespace    https://www.pizyds.com/
-// @version      1.3.2
+// @version      1.4.0
 // @description  Automatic generation of direct download PDF on Rain Classroom
 // @description:zh-CN 在雨课堂页面自动生成PDF版本课件提供下载
 // @author       PillarsZhang
@@ -11,7 +11,7 @@
 // @license      MIT
 // @match        https://*.yuketang.cn/*
 // @icon         https://www.yuketang.cn/static/images/favicon.ico
-// @require      https://lib.baomitu.com/jspdf/2.4.0/jspdf.umd.min.js#sha256=e6b6bfd150b911d1e05904a7e03f86265c9c83bfa18e7082b27630aa6330fb92
+// @require      https://cdnjs.cloudflare.com/ajax/libs/jspdf/4.2.1/jspdf.umd.min.js#sha256=e6551fcdc32f09d6853b2c5126d18d01d9447e0da618a41a11ebeee0f6c20d54
 // @require      https://lib.baomitu.com/html2canvas/0.5.0-beta4/html2canvas.min.js#sha256=c3aff5074bb0929477b97d18530de4db3cc79eaeb10cd7556472c8773f3157a2
 // @require      https://lib.baomitu.com/jquery/3.6.0/jquery.min.js#sha256=ff1523fb7389539c84c65aba19260648793bb4f5e29329d2ee8804bc37a3fe6e
 // @grant        GM_getValue
@@ -30,7 +30,7 @@
 /******/ (() => { // webpackBootstrap
 /******/ 	var __webpack_modules__ = ({
 
-/***/ 3518:
+/***/ 8187:
 /***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
 
 "use strict";
@@ -42,8 +42,8 @@ __webpack_require__.d(__webpack_exports__, {
   "afterMain": () => (/* reexport */ afterMain),
   "afterRead": () => (/* reexport */ afterRead),
   "afterWrite": () => (/* reexport */ afterWrite),
-  "applyStyles": () => (/* reexport */ PRPU_node_modules_popperjs_core_lib_modifiers_applyStyles),
-  "arrow": () => (/* reexport */ PRPU_node_modules_popperjs_core_lib_modifiers_arrow),
+  "applyStyles": () => (/* reexport */ modifiers_applyStyles),
+  "arrow": () => (/* reexport */ modifiers_arrow),
   "auto": () => (/* reexport */ auto),
   "basePlacements": () => (/* reexport */ basePlacements),
   "beforeMain": () => (/* reexport */ beforeMain),
@@ -51,41 +51,41 @@ __webpack_require__.d(__webpack_exports__, {
   "beforeWrite": () => (/* reexport */ beforeWrite),
   "bottom": () => (/* reexport */ bottom),
   "clippingParents": () => (/* reexport */ clippingParents),
-  "computeStyles": () => (/* reexport */ PRPU_node_modules_popperjs_core_lib_modifiers_computeStyles),
-  "createPopper": () => (/* reexport */ PRPU_node_modules_popperjs_core_lib_popper_createPopper),
+  "computeStyles": () => (/* reexport */ modifiers_computeStyles),
+  "createPopper": () => (/* reexport */ popper_createPopper),
   "createPopperBase": () => (/* reexport */ createPopper),
-  "createPopperLite": () => (/* reexport */ PRPU_node_modules_popperjs_core_lib_popper_lite_createPopper),
+  "createPopperLite": () => (/* reexport */ popper_lite_createPopper),
   "detectOverflow": () => (/* reexport */ detectOverflow),
   "end": () => (/* reexport */ end),
-  "eventListeners": () => (/* reexport */ PRPU_node_modules_popperjs_core_lib_modifiers_eventListeners),
-  "flip": () => (/* reexport */ PRPU_node_modules_popperjs_core_lib_modifiers_flip),
-  "hide": () => (/* reexport */ PRPU_node_modules_popperjs_core_lib_modifiers_hide),
+  "eventListeners": () => (/* reexport */ eventListeners),
+  "flip": () => (/* reexport */ modifiers_flip),
+  "hide": () => (/* reexport */ modifiers_hide),
   "left": () => (/* reexport */ left),
   "main": () => (/* reexport */ main),
   "modifierPhases": () => (/* reexport */ modifierPhases),
-  "offset": () => (/* reexport */ PRPU_node_modules_popperjs_core_lib_modifiers_offset),
-  "placements": () => (/* reexport */ PRPU_node_modules_popperjs_core_lib_enums_placements),
+  "offset": () => (/* reexport */ modifiers_offset),
+  "placements": () => (/* reexport */ enums_placements),
   "popper": () => (/* reexport */ popper),
   "popperGenerator": () => (/* reexport */ popperGenerator),
-  "popperOffsets": () => (/* reexport */ PRPU_node_modules_popperjs_core_lib_modifiers_popperOffsets),
-  "preventOverflow": () => (/* reexport */ PRPU_node_modules_popperjs_core_lib_modifiers_preventOverflow),
+  "popperOffsets": () => (/* reexport */ modifiers_popperOffsets),
+  "preventOverflow": () => (/* reexport */ modifiers_preventOverflow),
   "read": () => (/* reexport */ read),
   "reference": () => (/* reexport */ reference),
   "right": () => (/* reexport */ right),
   "start": () => (/* reexport */ start),
-  "top": () => (/* reexport */ PRPU_node_modules_popperjs_core_lib_enums_top),
+  "top": () => (/* reexport */ enums_top),
   "variationPlacements": () => (/* reexport */ variationPlacements),
   "viewport": () => (/* reexport */ viewport),
   "write": () => (/* reexport */ write)
 });
 
-;// CONCATENATED MODULE: PRPS\node_modules\@popperjs\core\lib\enums.js
-var PRPU_node_modules_popperjs_core_lib_enums_top = 'top';
+;// CONCATENATED MODULE: ./node_modules/@popperjs/core/lib/enums.js
+var enums_top = 'top';
 var bottom = 'bottom';
 var right = 'right';
 var left = 'left';
 var auto = 'auto';
-var basePlacements = [PRPU_node_modules_popperjs_core_lib_enums_top, bottom, right, left];
+var basePlacements = [enums_top, bottom, right, left];
 var start = 'start';
 var end = 'end';
 var clippingParents = 'clippingParents';
@@ -95,7 +95,7 @@ var reference = 'reference';
 var variationPlacements = /*#__PURE__*/basePlacements.reduce(function (acc, placement) {
   return acc.concat([placement + "-" + start, placement + "-" + end]);
 }, []);
-var PRPU_node_modules_popperjs_core_lib_enums_placements = /*#__PURE__*/[].concat(basePlacements, [auto]).reduce(function (acc, placement) {
+var enums_placements = /*#__PURE__*/[].concat(basePlacements, [auto]).reduce(function (acc, placement) {
   return acc.concat([placement, placement + "-" + start, placement + "-" + end]);
 }, []); // modifiers that need to read the DOM
 
@@ -111,11 +111,11 @@ var beforeWrite = 'beforeWrite';
 var write = 'write';
 var afterWrite = 'afterWrite';
 var modifierPhases = [beforeRead, read, afterRead, beforeMain, main, afterMain, beforeWrite, write, afterWrite];
-;// CONCATENATED MODULE: PRPS\node_modules\@popperjs\core\lib\dom-utils\getNodeName.js
+;// CONCATENATED MODULE: ./node_modules/@popperjs/core/lib/dom-utils/getNodeName.js
 function getNodeName(element) {
   return element ? (element.nodeName || '').toLowerCase() : null;
 }
-;// CONCATENATED MODULE: PRPS\node_modules\@popperjs\core\lib\dom-utils\getWindow.js
+;// CONCATENATED MODULE: ./node_modules/@popperjs/core/lib/dom-utils/getWindow.js
 function getWindow(node) {
   if (node == null) {
     return window;
@@ -128,7 +128,7 @@ function getWindow(node) {
 
   return node;
 }
-;// CONCATENATED MODULE: PRPS\node_modules\@popperjs\core\lib\dom-utils\instanceOf.js
+;// CONCATENATED MODULE: ./node_modules/@popperjs/core/lib/dom-utils/instanceOf.js
 
 
 function isElement(node) {
@@ -152,7 +152,7 @@ function isShadowRoot(node) {
 }
 
 
-;// CONCATENATED MODULE: PRPS\node_modules\@popperjs\core\lib\modifiers\applyStyles.js
+;// CONCATENATED MODULE: ./node_modules/@popperjs/core/lib/modifiers/applyStyles.js
 
  // This modifier takes the styles prepared by the `computeStyles` modifier
 // and applies them to the HTMLElements such as popper and arrow
@@ -229,7 +229,7 @@ function effect(_ref2) {
 } // eslint-disable-next-line import/no-unused-modules
 
 
-/* harmony default export */ const PRPU_node_modules_popperjs_core_lib_modifiers_applyStyles = ({
+/* harmony default export */ const modifiers_applyStyles = ({
   name: 'applyStyles',
   enabled: true,
   phase: 'write',
@@ -237,12 +237,12 @@ function effect(_ref2) {
   effect: effect,
   requires: ['computeStyles']
 });
-;// CONCATENATED MODULE: PRPS\node_modules\@popperjs\core\lib\utils\getBasePlacement.js
+;// CONCATENATED MODULE: ./node_modules/@popperjs/core/lib/utils/getBasePlacement.js
 
 function getBasePlacement(placement) {
   return placement.split('-')[0];
 }
-;// CONCATENATED MODULE: PRPS\node_modules\@popperjs\core\lib\dom-utils\getBoundingClientRect.js
+;// CONCATENATED MODULE: ./node_modules/@popperjs/core/lib/dom-utils/getBoundingClientRect.js
 function getBoundingClientRect(element) {
   var rect = element.getBoundingClientRect();
   return {
@@ -256,7 +256,7 @@ function getBoundingClientRect(element) {
     y: rect.top
   };
 }
-;// CONCATENATED MODULE: PRPS\node_modules\@popperjs\core\lib\dom-utils\getLayoutRect.js
+;// CONCATENATED MODULE: ./node_modules/@popperjs/core/lib/dom-utils/getLayoutRect.js
  // Returns the layout rect of an element relative to its offsetParent. Layout
 // means it doesn't take into account transforms.
 
@@ -282,7 +282,7 @@ function getLayoutRect(element) {
     height: height
   };
 }
-;// CONCATENATED MODULE: PRPS\node_modules\@popperjs\core\lib\dom-utils\contains.js
+;// CONCATENATED MODULE: ./node_modules/@popperjs/core/lib/dom-utils/contains.js
 
 function contains(parent, child) {
   var rootNode = child.getRootNode && child.getRootNode(); // First, attempt with faster native method
@@ -306,24 +306,24 @@ function contains(parent, child) {
 
   return false;
 }
-;// CONCATENATED MODULE: PRPS\node_modules\@popperjs\core\lib\dom-utils\getComputedStyle.js
+;// CONCATENATED MODULE: ./node_modules/@popperjs/core/lib/dom-utils/getComputedStyle.js
 
 function getComputedStyle(element) {
   return getWindow(element).getComputedStyle(element);
 }
-;// CONCATENATED MODULE: PRPS\node_modules\@popperjs\core\lib\dom-utils\isTableElement.js
+;// CONCATENATED MODULE: ./node_modules/@popperjs/core/lib/dom-utils/isTableElement.js
 
 function isTableElement(element) {
   return ['table', 'td', 'th'].indexOf(getNodeName(element)) >= 0;
 }
-;// CONCATENATED MODULE: PRPS\node_modules\@popperjs\core\lib\dom-utils\getDocumentElement.js
+;// CONCATENATED MODULE: ./node_modules/@popperjs/core/lib/dom-utils/getDocumentElement.js
 
 function getDocumentElement(element) {
   // $FlowFixMe[incompatible-return]: assume body is always available
   return ((isElement(element) ? element.ownerDocument : // $FlowFixMe[prop-missing]
   element.document) || window.document).documentElement;
 }
-;// CONCATENATED MODULE: PRPS\node_modules\@popperjs\core\lib\dom-utils\getParentNode.js
+;// CONCATENATED MODULE: ./node_modules/@popperjs/core/lib/dom-utils/getParentNode.js
 
 
 
@@ -343,7 +343,7 @@ function getParentNode(element) {
 
   );
 }
-;// CONCATENATED MODULE: PRPS\node_modules\@popperjs\core\lib\dom-utils\getOffsetParent.js
+;// CONCATENATED MODULE: ./node_modules/@popperjs/core/lib/dom-utils/getOffsetParent.js
 
 
 
@@ -408,20 +408,20 @@ function getOffsetParent(element) {
 
   return offsetParent || getContainingBlock(element) || window;
 }
-;// CONCATENATED MODULE: PRPS\node_modules\@popperjs\core\lib\utils\getMainAxisFromPlacement.js
+;// CONCATENATED MODULE: ./node_modules/@popperjs/core/lib/utils/getMainAxisFromPlacement.js
 function getMainAxisFromPlacement(placement) {
   return ['top', 'bottom'].indexOf(placement) >= 0 ? 'x' : 'y';
 }
-;// CONCATENATED MODULE: PRPS\node_modules\@popperjs\core\lib\utils\math.js
-var PRPU_node_modules_popperjs_core_lib_utils_math_max = Math.max;
-var PRPU_node_modules_popperjs_core_lib_utils_math_min = Math.min;
+;// CONCATENATED MODULE: ./node_modules/@popperjs/core/lib/utils/math.js
+var math_max = Math.max;
+var math_min = Math.min;
 var round = Math.round;
-;// CONCATENATED MODULE: PRPS\node_modules\@popperjs\core\lib\utils\within.js
+;// CONCATENATED MODULE: ./node_modules/@popperjs/core/lib/utils/within.js
 
 function within(min, value, max) {
-  return PRPU_node_modules_popperjs_core_lib_utils_math_max(min, PRPU_node_modules_popperjs_core_lib_utils_math_min(value, max));
+  return math_max(min, math_min(value, max));
 }
-;// CONCATENATED MODULE: PRPS\node_modules\@popperjs\core\lib\utils\getFreshSideObject.js
+;// CONCATENATED MODULE: ./node_modules/@popperjs/core/lib/utils/getFreshSideObject.js
 function getFreshSideObject() {
   return {
     top: 0,
@@ -430,19 +430,19 @@ function getFreshSideObject() {
     left: 0
   };
 }
-;// CONCATENATED MODULE: PRPS\node_modules\@popperjs\core\lib\utils\mergePaddingObject.js
+;// CONCATENATED MODULE: ./node_modules/@popperjs/core/lib/utils/mergePaddingObject.js
 
 function mergePaddingObject(paddingObject) {
   return Object.assign({}, getFreshSideObject(), paddingObject);
 }
-;// CONCATENATED MODULE: PRPS\node_modules\@popperjs\core\lib\utils\expandToHashMap.js
+;// CONCATENATED MODULE: ./node_modules/@popperjs/core/lib/utils/expandToHashMap.js
 function expandToHashMap(value, keys) {
   return keys.reduce(function (hashMap, key) {
     hashMap[key] = value;
     return hashMap;
   }, {});
 }
-;// CONCATENATED MODULE: PRPS\node_modules\@popperjs\core\lib\modifiers\arrow.js
+;// CONCATENATED MODULE: ./node_modules/@popperjs/core/lib/modifiers/arrow.js
 
 
 
@@ -480,7 +480,7 @@ function arrow(_ref) {
 
   var paddingObject = toPaddingObject(options.padding, state);
   var arrowRect = getLayoutRect(arrowElement);
-  var minProp = axis === 'y' ? PRPU_node_modules_popperjs_core_lib_enums_top : left;
+  var minProp = axis === 'y' ? enums_top : left;
   var maxProp = axis === 'y' ? bottom : right;
   var endDiff = state.rects.reference[len] + state.rects.reference[axis] - popperOffsets[axis] - state.rects.popper[len];
   var startDiff = popperOffsets[axis] - state.rects.reference[axis];
@@ -498,7 +498,7 @@ function arrow(_ref) {
   state.modifiersData[name] = (_state$modifiersData$ = {}, _state$modifiersData$[axisProp] = offset, _state$modifiersData$.centerOffset = offset - center, _state$modifiersData$);
 }
 
-function PRPU_node_modules_popperjs_core_lib_modifiers_arrow_effect(_ref2) {
+function arrow_effect(_ref2) {
   var state = _ref2.state,
       options = _ref2.options;
   var _options$element = options.element,
@@ -529,16 +529,16 @@ function PRPU_node_modules_popperjs_core_lib_modifiers_arrow_effect(_ref2) {
 } // eslint-disable-next-line import/no-unused-modules
 
 
-/* harmony default export */ const PRPU_node_modules_popperjs_core_lib_modifiers_arrow = ({
+/* harmony default export */ const modifiers_arrow = ({
   name: 'arrow',
   enabled: true,
   phase: 'main',
   fn: arrow,
-  effect: PRPU_node_modules_popperjs_core_lib_modifiers_arrow_effect,
+  effect: arrow_effect,
   requires: ['popperOffsets'],
   requiresIfExists: ['preventOverflow']
 });
-;// CONCATENATED MODULE: PRPS\node_modules\@popperjs\core\lib\modifiers\computeStyles.js
+;// CONCATENATED MODULE: ./node_modules/@popperjs/core/lib/modifiers/computeStyles.js
 
 
 
@@ -588,7 +588,7 @@ function mapToStyles(_ref2) {
   var hasX = offsets.hasOwnProperty('x');
   var hasY = offsets.hasOwnProperty('y');
   var sideX = left;
-  var sideY = PRPU_node_modules_popperjs_core_lib_enums_top;
+  var sideY = enums_top;
   var win = window;
 
   if (adaptive) {
@@ -608,7 +608,7 @@ function mapToStyles(_ref2) {
 
     offsetParent = offsetParent;
 
-    if (placement === PRPU_node_modules_popperjs_core_lib_enums_top) {
+    if (placement === enums_top) {
       sideY = bottom; // $FlowFixMe[prop-missing]
 
       y -= offsetParent[heightProp] - popperRect.height;
@@ -679,21 +679,21 @@ function computeStyles(_ref4) {
 } // eslint-disable-next-line import/no-unused-modules
 
 
-/* harmony default export */ const PRPU_node_modules_popperjs_core_lib_modifiers_computeStyles = ({
+/* harmony default export */ const modifiers_computeStyles = ({
   name: 'computeStyles',
   enabled: true,
   phase: 'beforeWrite',
   fn: computeStyles,
   data: {}
 });
-;// CONCATENATED MODULE: PRPS\node_modules\@popperjs\core\lib\modifiers\eventListeners.js
+;// CONCATENATED MODULE: ./node_modules/@popperjs/core/lib/modifiers/eventListeners.js
  // eslint-disable-next-line import/no-unused-modules
 
 var passive = {
   passive: true
 };
 
-function PRPU_node_modules_popperjs_core_lib_modifiers_eventListeners_effect(_ref) {
+function eventListeners_effect(_ref) {
   var state = _ref.state,
       instance = _ref.instance,
       options = _ref.options;
@@ -728,15 +728,15 @@ function PRPU_node_modules_popperjs_core_lib_modifiers_eventListeners_effect(_re
 } // eslint-disable-next-line import/no-unused-modules
 
 
-/* harmony default export */ const PRPU_node_modules_popperjs_core_lib_modifiers_eventListeners = ({
+/* harmony default export */ const eventListeners = ({
   name: 'eventListeners',
   enabled: true,
   phase: 'write',
   fn: function fn() {},
-  effect: PRPU_node_modules_popperjs_core_lib_modifiers_eventListeners_effect,
+  effect: eventListeners_effect,
   data: {}
 });
-;// CONCATENATED MODULE: PRPS\node_modules\@popperjs\core\lib\utils\getOppositePlacement.js
+;// CONCATENATED MODULE: ./node_modules/@popperjs/core/lib/utils/getOppositePlacement.js
 var hash = {
   left: 'right',
   right: 'left',
@@ -748,17 +748,17 @@ function getOppositePlacement(placement) {
     return hash[matched];
   });
 }
-;// CONCATENATED MODULE: PRPS\node_modules\@popperjs\core\lib\utils\getOppositeVariationPlacement.js
-var PRPU_node_modules_popperjs_core_lib_utils_getOppositeVariationPlacement_hash = {
+;// CONCATENATED MODULE: ./node_modules/@popperjs/core/lib/utils/getOppositeVariationPlacement.js
+var getOppositeVariationPlacement_hash = {
   start: 'end',
   end: 'start'
 };
 function getOppositeVariationPlacement(placement) {
   return placement.replace(/start|end/g, function (matched) {
-    return PRPU_node_modules_popperjs_core_lib_utils_getOppositeVariationPlacement_hash[matched];
+    return getOppositeVariationPlacement_hash[matched];
   });
 }
-;// CONCATENATED MODULE: PRPS\node_modules\@popperjs\core\lib\dom-utils\getWindowScroll.js
+;// CONCATENATED MODULE: ./node_modules/@popperjs/core/lib/dom-utils/getWindowScroll.js
 
 function getWindowScroll(node) {
   var win = getWindow(node);
@@ -769,7 +769,7 @@ function getWindowScroll(node) {
     scrollTop: scrollTop
   };
 }
-;// CONCATENATED MODULE: PRPS\node_modules\@popperjs\core\lib\dom-utils\getWindowScrollBarX.js
+;// CONCATENATED MODULE: ./node_modules/@popperjs/core/lib/dom-utils/getWindowScrollBarX.js
 
 
 
@@ -783,7 +783,7 @@ function getWindowScrollBarX(element) {
   // this (e.g. Edge 2019, IE11, Safari)
   return getBoundingClientRect(getDocumentElement(element)).left + getWindowScroll(element).scrollLeft;
 }
-;// CONCATENATED MODULE: PRPS\node_modules\@popperjs\core\lib\dom-utils\getViewportRect.js
+;// CONCATENATED MODULE: ./node_modules/@popperjs/core/lib/dom-utils/getViewportRect.js
 
 
 
@@ -824,7 +824,7 @@ function getViewportRect(element) {
     y: y
   };
 }
-;// CONCATENATED MODULE: PRPS\node_modules\@popperjs\core\lib\dom-utils\getDocumentRect.js
+;// CONCATENATED MODULE: ./node_modules/@popperjs/core/lib/dom-utils/getDocumentRect.js
 
 
 
@@ -838,13 +838,13 @@ function getDocumentRect(element) {
   var html = getDocumentElement(element);
   var winScroll = getWindowScroll(element);
   var body = (_element$ownerDocumen = element.ownerDocument) == null ? void 0 : _element$ownerDocumen.body;
-  var width = PRPU_node_modules_popperjs_core_lib_utils_math_max(html.scrollWidth, html.clientWidth, body ? body.scrollWidth : 0, body ? body.clientWidth : 0);
-  var height = PRPU_node_modules_popperjs_core_lib_utils_math_max(html.scrollHeight, html.clientHeight, body ? body.scrollHeight : 0, body ? body.clientHeight : 0);
+  var width = math_max(html.scrollWidth, html.clientWidth, body ? body.scrollWidth : 0, body ? body.clientWidth : 0);
+  var height = math_max(html.scrollHeight, html.clientHeight, body ? body.scrollHeight : 0, body ? body.clientHeight : 0);
   var x = -winScroll.scrollLeft + getWindowScrollBarX(element);
   var y = -winScroll.scrollTop;
 
   if (getComputedStyle(body || html).direction === 'rtl') {
-    x += PRPU_node_modules_popperjs_core_lib_utils_math_max(html.clientWidth, body ? body.clientWidth : 0) - width;
+    x += math_max(html.clientWidth, body ? body.clientWidth : 0) - width;
   }
 
   return {
@@ -854,7 +854,7 @@ function getDocumentRect(element) {
     y: y
   };
 }
-;// CONCATENATED MODULE: PRPS\node_modules\@popperjs\core\lib\dom-utils\isScrollParent.js
+;// CONCATENATED MODULE: ./node_modules/@popperjs/core/lib/dom-utils/isScrollParent.js
 
 function isScrollParent(element) {
   // Firefox wants us to check `-x` and `-y` variations as well
@@ -865,7 +865,7 @@ function isScrollParent(element) {
 
   return /auto|scroll|overlay|hidden/.test(overflow + overflowY + overflowX);
 }
-;// CONCATENATED MODULE: PRPS\node_modules\@popperjs\core\lib\dom-utils\getScrollParent.js
+;// CONCATENATED MODULE: ./node_modules/@popperjs/core/lib/dom-utils/getScrollParent.js
 
 
 
@@ -882,7 +882,7 @@ function getScrollParent(node) {
 
   return getScrollParent(getParentNode(node));
 }
-;// CONCATENATED MODULE: PRPS\node_modules\@popperjs\core\lib\dom-utils\listScrollParents.js
+;// CONCATENATED MODULE: ./node_modules/@popperjs/core/lib/dom-utils/listScrollParents.js
 
 
 
@@ -909,7 +909,7 @@ function listScrollParents(element, list) {
   return isBody ? updatedList : // $FlowFixMe[incompatible-call]: isBody tells us target will be an HTMLElement here
   updatedList.concat(listScrollParents(getParentNode(target)));
 }
-;// CONCATENATED MODULE: PRPS\node_modules\@popperjs\core\lib\utils\rectToClientRect.js
+;// CONCATENATED MODULE: ./node_modules/@popperjs/core/lib/utils/rectToClientRect.js
 function rectToClientRect(rect) {
   return Object.assign({}, rect, {
     left: rect.x,
@@ -918,7 +918,7 @@ function rectToClientRect(rect) {
     bottom: rect.y + rect.height
   });
 }
-;// CONCATENATED MODULE: PRPS\node_modules\@popperjs\core\lib\dom-utils\getClippingRect.js
+;// CONCATENATED MODULE: ./node_modules/@popperjs/core/lib/dom-utils/getClippingRect.js
 
 
 
@@ -977,10 +977,10 @@ function getClippingRect(element, boundary, rootBoundary) {
   var firstClippingParent = clippingParents[0];
   var clippingRect = clippingParents.reduce(function (accRect, clippingParent) {
     var rect = getClientRectFromMixedType(element, clippingParent);
-    accRect.top = PRPU_node_modules_popperjs_core_lib_utils_math_max(rect.top, accRect.top);
-    accRect.right = PRPU_node_modules_popperjs_core_lib_utils_math_min(rect.right, accRect.right);
-    accRect.bottom = PRPU_node_modules_popperjs_core_lib_utils_math_min(rect.bottom, accRect.bottom);
-    accRect.left = PRPU_node_modules_popperjs_core_lib_utils_math_max(rect.left, accRect.left);
+    accRect.top = math_max(rect.top, accRect.top);
+    accRect.right = math_min(rect.right, accRect.right);
+    accRect.bottom = math_min(rect.bottom, accRect.bottom);
+    accRect.left = math_max(rect.left, accRect.left);
     return accRect;
   }, getClientRectFromMixedType(element, firstClippingParent));
   clippingRect.width = clippingRect.right - clippingRect.left;
@@ -989,11 +989,11 @@ function getClippingRect(element, boundary, rootBoundary) {
   clippingRect.y = clippingRect.top;
   return clippingRect;
 }
-;// CONCATENATED MODULE: PRPS\node_modules\@popperjs\core\lib\utils\getVariation.js
+;// CONCATENATED MODULE: ./node_modules/@popperjs/core/lib/utils/getVariation.js
 function getVariation(placement) {
   return placement.split('-')[1];
 }
-;// CONCATENATED MODULE: PRPS\node_modules\@popperjs\core\lib\utils\computeOffsets.js
+;// CONCATENATED MODULE: ./node_modules/@popperjs/core/lib/utils/computeOffsets.js
 
 
 
@@ -1009,7 +1009,7 @@ function computeOffsets(_ref) {
   var offsets;
 
   switch (basePlacement) {
-    case PRPU_node_modules_popperjs_core_lib_enums_top:
+    case enums_top:
       offsets = {
         x: commonX,
         y: reference.y - element.height
@@ -1064,7 +1064,7 @@ function computeOffsets(_ref) {
 
   return offsets;
 }
-;// CONCATENATED MODULE: PRPS\node_modules\@popperjs\core\lib\utils\detectOverflow.js
+;// CONCATENATED MODULE: ./node_modules/@popperjs/core/lib/utils/detectOverflow.js
 
 
 
@@ -1122,14 +1122,14 @@ function detectOverflow(state, options) {
     var offset = offsetData[placement];
     Object.keys(overflowOffsets).forEach(function (key) {
       var multiply = [right, bottom].indexOf(key) >= 0 ? 1 : -1;
-      var axis = [PRPU_node_modules_popperjs_core_lib_enums_top, bottom].indexOf(key) >= 0 ? 'y' : 'x';
+      var axis = [enums_top, bottom].indexOf(key) >= 0 ? 'y' : 'x';
       overflowOffsets[key] += offset[axis] * multiply;
     });
   }
 
   return overflowOffsets;
 }
-;// CONCATENATED MODULE: PRPS\node_modules\@popperjs\core\lib\utils\computeAutoPlacement.js
+;// CONCATENATED MODULE: ./node_modules/@popperjs/core/lib/utils/computeAutoPlacement.js
 
 
 
@@ -1146,7 +1146,7 @@ function computeAutoPlacement(state, options) {
       padding = _options.padding,
       flipVariations = _options.flipVariations,
       _options$allowedAutoP = _options.allowedAutoPlacements,
-      allowedAutoPlacements = _options$allowedAutoP === void 0 ? PRPU_node_modules_popperjs_core_lib_enums_placements : _options$allowedAutoP;
+      allowedAutoPlacements = _options$allowedAutoP === void 0 ? enums_placements : _options$allowedAutoP;
   var variation = getVariation(placement);
   var placements = variation ? flipVariations ? variationPlacements : variationPlacements.filter(function (placement) {
     return getVariation(placement) === variation;
@@ -1175,7 +1175,7 @@ function computeAutoPlacement(state, options) {
     return overflows[a] - overflows[b];
   });
 }
-;// CONCATENATED MODULE: PRPS\node_modules\@popperjs\core\lib\modifiers\flip.js
+;// CONCATENATED MODULE: ./node_modules/@popperjs/core/lib/modifiers/flip.js
 
 
 
@@ -1240,7 +1240,7 @@ function flip(_ref) {
     var _basePlacement = getBasePlacement(placement);
 
     var isStartVariation = getVariation(placement) === start;
-    var isVertical = [PRPU_node_modules_popperjs_core_lib_enums_top, bottom].indexOf(_basePlacement) >= 0;
+    var isVertical = [enums_top, bottom].indexOf(_basePlacement) >= 0;
     var len = isVertical ? 'width' : 'height';
     var overflow = detectOverflow(state, {
       placement: placement,
@@ -1249,7 +1249,7 @@ function flip(_ref) {
       altBoundary: altBoundary,
       padding: padding
     });
-    var mainVariationSide = isVertical ? isStartVariation ? right : left : isStartVariation ? bottom : PRPU_node_modules_popperjs_core_lib_enums_top;
+    var mainVariationSide = isVertical ? isStartVariation ? right : left : isStartVariation ? bottom : enums_top;
 
     if (referenceRect[len] > popperRect[len]) {
       mainVariationSide = getOppositePlacement(mainVariationSide);
@@ -1313,7 +1313,7 @@ function flip(_ref) {
 } // eslint-disable-next-line import/no-unused-modules
 
 
-/* harmony default export */ const PRPU_node_modules_popperjs_core_lib_modifiers_flip = ({
+/* harmony default export */ const modifiers_flip = ({
   name: 'flip',
   enabled: true,
   phase: 'main',
@@ -1323,7 +1323,7 @@ function flip(_ref) {
     _skip: false
   }
 });
-;// CONCATENATED MODULE: PRPS\node_modules\@popperjs\core\lib\modifiers\hide.js
+;// CONCATENATED MODULE: ./node_modules/@popperjs/core/lib/modifiers/hide.js
 
 
 
@@ -1344,7 +1344,7 @@ function getSideOffsets(overflow, rect, preventedOffsets) {
 }
 
 function isAnySideFullyClipped(overflow) {
-  return [PRPU_node_modules_popperjs_core_lib_enums_top, right, bottom, left].some(function (side) {
+  return [enums_top, right, bottom, left].some(function (side) {
     return overflow[side] >= 0;
   });
 }
@@ -1378,19 +1378,19 @@ function hide(_ref) {
 } // eslint-disable-next-line import/no-unused-modules
 
 
-/* harmony default export */ const PRPU_node_modules_popperjs_core_lib_modifiers_hide = ({
+/* harmony default export */ const modifiers_hide = ({
   name: 'hide',
   enabled: true,
   phase: 'main',
   requiresIfExists: ['preventOverflow'],
   fn: hide
 });
-;// CONCATENATED MODULE: PRPS\node_modules\@popperjs\core\lib\modifiers\offset.js
+;// CONCATENATED MODULE: ./node_modules/@popperjs/core/lib/modifiers/offset.js
 
 
 function distanceAndSkiddingToXY(placement, rects, offset) {
   var basePlacement = getBasePlacement(placement);
-  var invertDistance = [left, PRPU_node_modules_popperjs_core_lib_enums_top].indexOf(basePlacement) >= 0 ? -1 : 1;
+  var invertDistance = [left, enums_top].indexOf(basePlacement) >= 0 ? -1 : 1;
 
   var _ref = typeof offset === 'function' ? offset(Object.assign({}, rects, {
     placement: placement
@@ -1415,7 +1415,7 @@ function offset(_ref2) {
       name = _ref2.name;
   var _options$offset = options.offset,
       offset = _options$offset === void 0 ? [0, 0] : _options$offset;
-  var data = PRPU_node_modules_popperjs_core_lib_enums_placements.reduce(function (acc, placement) {
+  var data = enums_placements.reduce(function (acc, placement) {
     acc[placement] = distanceAndSkiddingToXY(placement, state.rects, offset);
     return acc;
   }, {});
@@ -1432,14 +1432,14 @@ function offset(_ref2) {
 } // eslint-disable-next-line import/no-unused-modules
 
 
-/* harmony default export */ const PRPU_node_modules_popperjs_core_lib_modifiers_offset = ({
+/* harmony default export */ const modifiers_offset = ({
   name: 'offset',
   enabled: true,
   phase: 'main',
   requires: ['popperOffsets'],
   fn: offset
 });
-;// CONCATENATED MODULE: PRPS\node_modules\@popperjs\core\lib\modifiers\popperOffsets.js
+;// CONCATENATED MODULE: ./node_modules/@popperjs/core/lib/modifiers/popperOffsets.js
 
 
 function popperOffsets(_ref) {
@@ -1458,18 +1458,18 @@ function popperOffsets(_ref) {
 } // eslint-disable-next-line import/no-unused-modules
 
 
-/* harmony default export */ const PRPU_node_modules_popperjs_core_lib_modifiers_popperOffsets = ({
+/* harmony default export */ const modifiers_popperOffsets = ({
   name: 'popperOffsets',
   enabled: true,
   phase: 'read',
   fn: popperOffsets,
   data: {}
 });
-;// CONCATENATED MODULE: PRPS\node_modules\@popperjs\core\lib\utils\getAltAxis.js
+;// CONCATENATED MODULE: ./node_modules/@popperjs/core/lib/utils/getAltAxis.js
 function getAltAxis(axis) {
   return axis === 'x' ? 'y' : 'x';
 }
-;// CONCATENATED MODULE: PRPS\node_modules\@popperjs\core\lib\modifiers\preventOverflow.js
+;// CONCATENATED MODULE: ./node_modules/@popperjs/core/lib/modifiers/preventOverflow.js
 
 
 
@@ -1525,7 +1525,7 @@ function preventOverflow(_ref) {
   }
 
   if (checkMainAxis || checkAltAxis) {
-    var mainSide = mainAxis === 'y' ? PRPU_node_modules_popperjs_core_lib_enums_top : left;
+    var mainSide = mainAxis === 'y' ? enums_top : left;
     var altSide = mainAxis === 'y' ? bottom : right;
     var len = mainAxis === 'y' ? 'height' : 'width';
     var offset = popperOffsets[mainAxis];
@@ -1559,13 +1559,13 @@ function preventOverflow(_ref) {
     var tetherMax = popperOffsets[mainAxis] + maxOffset - offsetModifierValue;
 
     if (checkMainAxis) {
-      var preventedOffset = within(tether ? PRPU_node_modules_popperjs_core_lib_utils_math_min(min, tetherMin) : min, offset, tether ? PRPU_node_modules_popperjs_core_lib_utils_math_max(max, tetherMax) : max);
+      var preventedOffset = within(tether ? math_min(min, tetherMin) : min, offset, tether ? math_max(max, tetherMax) : max);
       popperOffsets[mainAxis] = preventedOffset;
       data[mainAxis] = preventedOffset - offset;
     }
 
     if (checkAltAxis) {
-      var _mainSide = mainAxis === 'x' ? PRPU_node_modules_popperjs_core_lib_enums_top : left;
+      var _mainSide = mainAxis === 'x' ? enums_top : left;
 
       var _altSide = mainAxis === 'x' ? bottom : right;
 
@@ -1575,7 +1575,7 @@ function preventOverflow(_ref) {
 
       var _max = _offset - overflow[_altSide];
 
-      var _preventedOffset = within(tether ? PRPU_node_modules_popperjs_core_lib_utils_math_min(_min, tetherMin) : _min, _offset, tether ? PRPU_node_modules_popperjs_core_lib_utils_math_max(_max, tetherMax) : _max);
+      var _preventedOffset = within(tether ? math_min(_min, tetherMin) : _min, _offset, tether ? math_max(_max, tetherMax) : _max);
 
       popperOffsets[altAxis] = _preventedOffset;
       data[altAxis] = _preventedOffset - _offset;
@@ -1586,14 +1586,14 @@ function preventOverflow(_ref) {
 } // eslint-disable-next-line import/no-unused-modules
 
 
-/* harmony default export */ const PRPU_node_modules_popperjs_core_lib_modifiers_preventOverflow = ({
+/* harmony default export */ const modifiers_preventOverflow = ({
   name: 'preventOverflow',
   enabled: true,
   phase: 'main',
   fn: preventOverflow,
   requiresIfExists: ['offset']
 });
-;// CONCATENATED MODULE: PRPS\node_modules\@popperjs\core\lib\modifiers\index.js
+;// CONCATENATED MODULE: ./node_modules/@popperjs/core/lib/modifiers/index.js
 
 
 
@@ -1603,14 +1603,14 @@ function preventOverflow(_ref) {
 
 
 
-;// CONCATENATED MODULE: PRPS\node_modules\@popperjs\core\lib\dom-utils\getHTMLElementScroll.js
+;// CONCATENATED MODULE: ./node_modules/@popperjs/core/lib/dom-utils/getHTMLElementScroll.js
 function getHTMLElementScroll(element) {
   return {
     scrollLeft: element.scrollLeft,
     scrollTop: element.scrollTop
   };
 }
-;// CONCATENATED MODULE: PRPS\node_modules\@popperjs\core\lib\dom-utils\getNodeScroll.js
+;// CONCATENATED MODULE: ./node_modules/@popperjs/core/lib/dom-utils/getNodeScroll.js
 
 
 
@@ -1622,7 +1622,7 @@ function getNodeScroll(node) {
     return getHTMLElementScroll(node);
   }
 }
-;// CONCATENATED MODULE: PRPS\node_modules\@popperjs\core\lib\dom-utils\getCompositeRect.js
+;// CONCATENATED MODULE: ./node_modules/@popperjs/core/lib/dom-utils/getCompositeRect.js
 
 
 
@@ -1671,7 +1671,7 @@ function getCompositeRect(elementOrVirtualElement, offsetParent, isFixed) {
     height: rect.height
   };
 }
-;// CONCATENATED MODULE: PRPS\node_modules\@popperjs\core\lib\utils\orderModifiers.js
+;// CONCATENATED MODULE: ./node_modules/@popperjs/core/lib/utils/orderModifiers.js
  // source: https://stackoverflow.com/questions/49875255
 
 function order(modifiers) {
@@ -1716,7 +1716,7 @@ function orderModifiers(modifiers) {
     }));
   }, []);
 }
-;// CONCATENATED MODULE: PRPS\node_modules\@popperjs\core\lib\utils\debounce.js
+;// CONCATENATED MODULE: ./node_modules/@popperjs/core/lib/utils/debounce.js
 function debounce(fn) {
   var pending;
   return function () {
@@ -1732,7 +1732,7 @@ function debounce(fn) {
     return pending;
   };
 }
-;// CONCATENATED MODULE: PRPS\node_modules\@popperjs\core\lib\utils\mergeByName.js
+;// CONCATENATED MODULE: ./node_modules/@popperjs/core/lib/utils/mergeByName.js
 function mergeByName(modifiers) {
   var merged = modifiers.reduce(function (merged, current) {
     var existing = merged[current.name];
@@ -1747,7 +1747,7 @@ function mergeByName(modifiers) {
     return merged[key];
   });
 }
-;// CONCATENATED MODULE: PRPS\node_modules\@popperjs\core\lib\createPopper.js
+;// CONCATENATED MODULE: ./node_modules/@popperjs/core/lib/createPopper.js
 
 
 
@@ -1964,7 +1964,7 @@ function popperGenerator(generatorOptions) {
 var createPopper = /*#__PURE__*/popperGenerator(); // eslint-disable-next-line import/no-unused-modules
 
 
-;// CONCATENATED MODULE: PRPS\node_modules\@popperjs\core\lib\popper.js
+;// CONCATENATED MODULE: ./node_modules/@popperjs/core/lib/popper.js
 
 
 
@@ -1975,8 +1975,8 @@ var createPopper = /*#__PURE__*/popperGenerator(); // eslint-disable-next-line i
 
 
 
-var defaultModifiers = [PRPU_node_modules_popperjs_core_lib_modifiers_eventListeners, PRPU_node_modules_popperjs_core_lib_modifiers_popperOffsets, PRPU_node_modules_popperjs_core_lib_modifiers_computeStyles, PRPU_node_modules_popperjs_core_lib_modifiers_applyStyles, PRPU_node_modules_popperjs_core_lib_modifiers_offset, PRPU_node_modules_popperjs_core_lib_modifiers_flip, PRPU_node_modules_popperjs_core_lib_modifiers_preventOverflow, PRPU_node_modules_popperjs_core_lib_modifiers_arrow, PRPU_node_modules_popperjs_core_lib_modifiers_hide];
-var PRPU_node_modules_popperjs_core_lib_popper_createPopper = /*#__PURE__*/popperGenerator({
+var defaultModifiers = [eventListeners, modifiers_popperOffsets, modifiers_computeStyles, modifiers_applyStyles, modifiers_offset, modifiers_flip, modifiers_preventOverflow, modifiers_arrow, modifiers_hide];
+var popper_createPopper = /*#__PURE__*/popperGenerator({
   defaultModifiers: defaultModifiers
 }); // eslint-disable-next-line import/no-unused-modules
 
@@ -1985,19 +1985,19 @@ var PRPU_node_modules_popperjs_core_lib_popper_createPopper = /*#__PURE__*/poppe
  // eslint-disable-next-line import/no-unused-modules
 
 
-;// CONCATENATED MODULE: PRPS\node_modules\@popperjs\core\lib\popper-lite.js
+;// CONCATENATED MODULE: ./node_modules/@popperjs/core/lib/popper-lite.js
 
 
 
 
 
-var PRPU_node_modules_popperjs_core_lib_popper_lite_defaultModifiers = [PRPU_node_modules_popperjs_core_lib_modifiers_eventListeners, PRPU_node_modules_popperjs_core_lib_modifiers_popperOffsets, PRPU_node_modules_popperjs_core_lib_modifiers_computeStyles, PRPU_node_modules_popperjs_core_lib_modifiers_applyStyles];
-var PRPU_node_modules_popperjs_core_lib_popper_lite_createPopper = /*#__PURE__*/popperGenerator({
-  defaultModifiers: PRPU_node_modules_popperjs_core_lib_popper_lite_defaultModifiers
+var popper_lite_defaultModifiers = [eventListeners, modifiers_popperOffsets, modifiers_computeStyles, modifiers_applyStyles];
+var popper_lite_createPopper = /*#__PURE__*/popperGenerator({
+  defaultModifiers: popper_lite_defaultModifiers
 }); // eslint-disable-next-line import/no-unused-modules
 
 
-;// CONCATENATED MODULE: PRPS\node_modules\@popperjs\core\lib\index.js
+;// CONCATENATED MODULE: ./node_modules/@popperjs/core/lib/index.js
 
  // eslint-disable-next-line import/no-unused-modules
 
@@ -2009,7 +2009,7 @@ var PRPU_node_modules_popperjs_core_lib_popper_lite_createPopper = /*#__PURE__*/
 
 /***/ }),
 
-/***/ 9856:
+/***/ 2906:
 /***/ ((module) => {
 
 "use strict";
@@ -2017,7 +2017,7 @@ module.exports = "<svg xmlns=\"http://www.w3.org/2000/svg\" width=\"16\" height=
 
 /***/ }),
 
-/***/ 376:
+/***/ 2381:
 /***/ ((module) => {
 
 "use strict";
@@ -2025,7 +2025,7 @@ module.exports = "<svg xmlns=\"http://www.w3.org/2000/svg\" width=\"16\" height=
 
 /***/ }),
 
-/***/ 5154:
+/***/ 2559:
 /***/ ((module) => {
 
 "use strict";
@@ -2033,7 +2033,7 @@ module.exports = "<svg xmlns=\"http://www.w3.org/2000/svg\" width=\"16\" height=
 
 /***/ }),
 
-/***/ 1984:
+/***/ 3736:
 /***/ ((module) => {
 
 "use strict";
@@ -2041,7 +2041,7 @@ module.exports = "<svg xmlns=\"http://www.w3.org/2000/svg\" width=\"16\" height=
 
 /***/ }),
 
-/***/ 1739:
+/***/ 6744:
 /***/ ((module) => {
 
 "use strict";
@@ -2049,7 +2049,7 @@ module.exports = "<svg xmlns=\"http://www.w3.org/2000/svg\" width=\"16\" height=
 
 /***/ }),
 
-/***/ 7185:
+/***/ 3510:
 /***/ ((module) => {
 
 "use strict";
@@ -2057,7 +2057,7 @@ module.exports = "<svg xmlns=\"http://www.w3.org/2000/svg\" width=\"16\" height=
 
 /***/ }),
 
-/***/ 4762:
+/***/ 5695:
 /***/ (function(module, __unused_webpack_exports, __webpack_require__) {
 
 /*!
@@ -2066,7 +2066,7 @@ module.exports = "<svg xmlns=\"http://www.w3.org/2000/svg\" width=\"16\" height=
   * Licensed under MIT (https://github.com/twbs/bootstrap/blob/main/LICENSE)
   */
 (function (global, factory) {
-   true ? module.exports = factory(__webpack_require__(2252), __webpack_require__(983), __webpack_require__(4955)) :
+   true ? module.exports = factory(__webpack_require__(493), __webpack_require__(8737), __webpack_require__(9286)) :
   0;
 }(this, (function (Data, SelectorEngine, EventHandler) { 'use strict';
 
@@ -2241,7 +2241,7 @@ module.exports = "<svg xmlns=\"http://www.w3.org/2000/svg\" width=\"16\" height=
 
 /***/ }),
 
-/***/ 2252:
+/***/ 493:
 /***/ (function(module) {
 
 /*!
@@ -2316,7 +2316,7 @@ module.exports = "<svg xmlns=\"http://www.w3.org/2000/svg\" width=\"16\" height=
 
 /***/ }),
 
-/***/ 4955:
+/***/ 9286:
 /***/ (function(module) {
 
 /*!
@@ -2638,7 +2638,7 @@ module.exports = "<svg xmlns=\"http://www.w3.org/2000/svg\" width=\"16\" height=
 
 /***/ }),
 
-/***/ 301:
+/***/ 3175:
 /***/ (function(module) {
 
 /*!
@@ -2733,7 +2733,7 @@ module.exports = "<svg xmlns=\"http://www.w3.org/2000/svg\" width=\"16\" height=
 
 /***/ }),
 
-/***/ 983:
+/***/ 8737:
 /***/ (function(module) {
 
 /*!
@@ -2825,7 +2825,7 @@ module.exports = "<svg xmlns=\"http://www.w3.org/2000/svg\" width=\"16\" height=
 
 /***/ }),
 
-/***/ 6960:
+/***/ 6101:
 /***/ (function(module, __unused_webpack_exports, __webpack_require__) {
 
 /*!
@@ -2834,7 +2834,7 @@ module.exports = "<svg xmlns=\"http://www.w3.org/2000/svg\" width=\"16\" height=
   * Licensed under MIT (https://github.com/twbs/bootstrap/blob/main/LICENSE)
   */
 (function (global, factory) {
-   true ? module.exports = factory(__webpack_require__(983), __webpack_require__(3632)) :
+   true ? module.exports = factory(__webpack_require__(8737), __webpack_require__(3824)) :
   0;
 }(this, (function (SelectorEngine, Tooltip) { 'use strict';
 
@@ -3048,7 +3048,7 @@ module.exports = "<svg xmlns=\"http://www.w3.org/2000/svg\" width=\"16\" height=
 
 /***/ }),
 
-/***/ 3632:
+/***/ 3824:
 /***/ (function(module, __unused_webpack_exports, __webpack_require__) {
 
 /*!
@@ -3057,7 +3057,7 @@ module.exports = "<svg xmlns=\"http://www.w3.org/2000/svg\" width=\"16\" height=
   * Licensed under MIT (https://github.com/twbs/bootstrap/blob/main/LICENSE)
   */
 (function (global, factory) {
-   true ? module.exports = factory(__webpack_require__(3518), __webpack_require__(983), __webpack_require__(2252), __webpack_require__(4955), __webpack_require__(301), __webpack_require__(4762)) :
+   true ? module.exports = factory(__webpack_require__(8187), __webpack_require__(8737), __webpack_require__(493), __webpack_require__(9286), __webpack_require__(3175), __webpack_require__(5695)) :
   0;
 }(this, (function (Popper, SelectorEngine, Data, EventHandler, Manipulator, BaseComponent) { 'use strict';
 
@@ -4042,14 +4042,14 @@ module.exports = "<svg xmlns=\"http://www.w3.org/2000/svg\" width=\"16\" height=
 
 /***/ }),
 
-/***/ 5324:
+/***/ 7789:
 /***/ ((module, __webpack_exports__, __webpack_require__) => {
 
 "use strict";
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
 /* harmony export */   "Z": () => (__WEBPACK_DEFAULT_EXPORT__)
 /* harmony export */ });
-/* harmony import */ var _node_modules_css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(718);
+/* harmony import */ var _node_modules_css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(3645);
 /* harmony import */ var _node_modules_css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_node_modules_css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_0__);
 // Imports
 
@@ -4062,7 +4062,7 @@ ___CSS_LOADER_EXPORT___.push([module.id, ".pizyds_rain .disabledField{pointer-ev
 
 /***/ }),
 
-/***/ 718:
+/***/ 3645:
 /***/ ((module) => {
 
 "use strict";
@@ -4135,7 +4135,7 @@ module.exports = function (cssWithMappingToString) {
 
 /***/ }),
 
-/***/ 8056:
+/***/ 5313:
 /***/ ((module) => {
 
 (function(f){if(true){module.exports=f()}else { var g; }})(function(){var define,module,exports;return (function(){function r(e,n,t){function o(i,f){if(!n[i]){if(!e[i]){var c=undefined;if(!f&&c)return require(i,!0);if(u)return u(i,!0);var a=new Error("Cannot find module '"+i+"'");throw a.code="MODULE_NOT_FOUND",a}var p=n[i]={exports:{}};e[i][0].call(p.exports,function(r){var n=e[i][1][r];return o(n||r)},p,p.exports,r,e,n,t)}return n[i].exports}for(var u=undefined,i=0;i<t.length;i++)o(t[i]);return o}return r})()({1:[function(require,module,exports){
@@ -5801,7 +5801,7 @@ module.exports={
 
 /***/ }),
 
-/***/ 8680:
+/***/ 561:
 /***/ ((module) => {
 
 "use strict";
@@ -5817,7 +5817,7 @@ module.exports = {
 
 /***/ }),
 
-/***/ 3307:
+/***/ 4556:
 /***/ ((module, __unused_webpack_exports, __webpack_require__) => {
 
 "use strict";
@@ -5835,14 +5835,14 @@ function _defineProperties(target, props) { for (var i = 0; i < props.length; i+
 
 function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _defineProperties(Constructor.prototype, protoProps); if (staticProps) _defineProperties(Constructor, staticProps); return Constructor; }
 
-var helpers = __webpack_require__(7098);
+var helpers = __webpack_require__(5660);
 
-var forge = __webpack_require__(1632);
+var forge = __webpack_require__(5609);
 
 var pki = forge.pki,
     rsa = forge.rsa;
 
-var _require = __webpack_require__(8680),
+var _require = __webpack_require__(561),
     DEFAULT_MESSAGE_DIGEST = _require.DEFAULT_MESSAGE_DIGEST,
     DEFAULT_AES_KEY_SIZE = _require.DEFAULT_AES_KEY_SIZE,
     DEFAULT_AES_IV_SIZE = _require.DEFAULT_AES_IV_SIZE,
@@ -6153,13 +6153,13 @@ module.exports = Crypt;
 
 /***/ }),
 
-/***/ 7098:
+/***/ 5660:
 /***/ ((module, __unused_webpack_exports, __webpack_require__) => {
 
 "use strict";
 
 
-var pkg = __webpack_require__(7371);
+var pkg = __webpack_require__(1272);
 
 module.exports = {
   version: function version() {
@@ -6172,15 +6172,15 @@ module.exports = {
 
 /***/ }),
 
-/***/ 7900:
+/***/ 9882:
 /***/ ((module, __unused_webpack_exports, __webpack_require__) => {
 
 "use strict";
 
 
-var Crypt = __webpack_require__(3307);
+var Crypt = __webpack_require__(4556);
 
-var RSA = __webpack_require__(5474);
+var RSA = __webpack_require__(3307);
 
 module.exports = {
   Crypt: Crypt,
@@ -6189,7 +6189,7 @@ module.exports = {
 
 /***/ }),
 
-/***/ 5474:
+/***/ 3307:
 /***/ ((module, __unused_webpack_exports, __webpack_require__) => {
 
 "use strict";
@@ -6207,7 +6207,7 @@ function _defineProperties(target, props) { for (var i = 0; i < props.length; i+
 
 function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _defineProperties(Constructor.prototype, protoProps); if (staticProps) _defineProperties(Constructor, staticProps); return Constructor; }
 
-var forge = __webpack_require__(1632);
+var forge = __webpack_require__(5609);
 
 var pki = forge.pki;
 
@@ -6300,7 +6300,7 @@ module.exports = RSA;
 
 /***/ }),
 
-/***/ 8315:
+/***/ 6075:
 /***/ ((module, __unused_webpack_exports, __webpack_require__) => {
 
 /**
@@ -6320,10 +6320,10 @@ module.exports = RSA;
  *
  * Copyright (c) 2010-2014 Digital Bazaar, Inc.
  */
-var forge = __webpack_require__(7009);
-__webpack_require__(9671);
-__webpack_require__(3982);
-__webpack_require__(2365);
+var forge = __webpack_require__(9204);
+__webpack_require__(4674);
+__webpack_require__(1809);
+__webpack_require__(4);
 
 /* AES API */
 module.exports = forge.aes = forge.aes || {};
@@ -7398,7 +7398,7 @@ function _createCipher(options) {
 
 /***/ }),
 
-/***/ 3444:
+/***/ 72:
 /***/ ((module, __unused_webpack_exports, __webpack_require__) => {
 
 /**
@@ -7409,9 +7409,9 @@ function _createCipher(options) {
  * Copyright (c) 2009-2015 Digital Bazaar, Inc.
  *
  */
-var forge = __webpack_require__(7009);
-__webpack_require__(8315);
-__webpack_require__(4545);
+var forge = __webpack_require__(9204);
+__webpack_require__(6075);
+__webpack_require__(2041);
 
 var tls = module.exports = forge.tls;
 
@@ -7687,7 +7687,7 @@ function compareMacs(key, mac1, mac2) {
 
 /***/ }),
 
-/***/ 1598:
+/***/ 2037:
 /***/ ((module, __unused_webpack_exports, __webpack_require__) => {
 
 /**
@@ -7825,9 +7825,9 @@ function compareMacs(key, mac1, mac2) {
  * The full OID (including ASN.1 tag and length of 6 bytes) is:
  * 0x06062A864886F70D
  */
-var forge = __webpack_require__(7009);
-__webpack_require__(2365);
-__webpack_require__(1692);
+var forge = __webpack_require__(9204);
+__webpack_require__(4);
+__webpack_require__(270);
 
 /* ASN.1 API */
 var asn1 = module.exports = forge.asn1 = forge.asn1 || {};
@@ -9102,7 +9102,7 @@ asn1.prettyPrint = function(obj, level, indentation) {
 
 /***/ }),
 
-/***/ 5596:
+/***/ 1967:
 /***/ ((module) => {
 
 /**
@@ -9295,7 +9295,7 @@ function _encodeWithByteBuffer(input, alphabet) {
 
 /***/ }),
 
-/***/ 9671:
+/***/ 4674:
 /***/ ((module, __unused_webpack_exports, __webpack_require__) => {
 
 /**
@@ -9305,8 +9305,8 @@ function _encodeWithByteBuffer(input, alphabet) {
  *
  * Copyright (c) 2010-2014 Digital Bazaar, Inc.
  */
-var forge = __webpack_require__(7009);
-__webpack_require__(2365);
+var forge = __webpack_require__(9204);
+__webpack_require__(4);
 
 module.exports = forge.cipher = forge.cipher || {};
 
@@ -9532,7 +9532,7 @@ BlockCipher.prototype.finish = function(pad) {
 
 /***/ }),
 
-/***/ 3982:
+/***/ 1809:
 /***/ ((module, __unused_webpack_exports, __webpack_require__) => {
 
 /**
@@ -9542,8 +9542,8 @@ BlockCipher.prototype.finish = function(pad) {
  *
  * Copyright (c) 2010-2014 Digital Bazaar, Inc.
  */
-var forge = __webpack_require__(7009);
-__webpack_require__(2365);
+var forge = __webpack_require__(9204);
+__webpack_require__(4);
 
 forge.cipher = forge.cipher || {};
 
@@ -10526,7 +10526,7 @@ function from64To32(num) {
 
 /***/ }),
 
-/***/ 5569:
+/***/ 7098:
 /***/ ((module, __unused_webpack_exports, __webpack_require__) => {
 
 /**
@@ -10536,7 +10536,7 @@ function from64To32(num) {
  *
  * Copyright 2008-2013 Digital Bazaar, Inc.
  */
-var forge = __webpack_require__(7009);
+var forge = __webpack_require__(9204);
 
 /* DEBUG API */
 module.exports = forge.debug = forge.debug || {};
@@ -10611,7 +10611,7 @@ forge.debug.clear = function(cat, name) {
 
 /***/ }),
 
-/***/ 3436:
+/***/ 3363:
 /***/ ((module, __unused_webpack_exports, __webpack_require__) => {
 
 /**
@@ -10645,10 +10645,10 @@ forge.debug.clear = function(cat, name) {
  * Copyright (c) 2012 Stefan Siegl <stesie@brokenpipe.de>
  * Copyright (c) 2012-2014 Digital Bazaar, Inc.
  */
-var forge = __webpack_require__(7009);
-__webpack_require__(9671);
-__webpack_require__(3982);
-__webpack_require__(2365);
+var forge = __webpack_require__(9204);
+__webpack_require__(4674);
+__webpack_require__(1809);
+__webpack_require__(4);
 
 /* DES API */
 module.exports = forge.des = forge.des || {};
@@ -11114,7 +11114,7 @@ function _createCipher(options) {
 
 /***/ }),
 
-/***/ 1353:
+/***/ 145:
 /***/ ((module, __unused_webpack_exports, __webpack_require__) => {
 
 /**
@@ -11127,11 +11127,11 @@ function _createCipher(options) {
  *
  * https://github.com/dchest/tweetnacl-js
  */
-var forge = __webpack_require__(7009);
-__webpack_require__(8785);
-__webpack_require__(6660);
-__webpack_require__(5368);
-__webpack_require__(2365);
+var forge = __webpack_require__(9204);
+__webpack_require__(7517);
+__webpack_require__(6173);
+__webpack_require__(2502);
+__webpack_require__(4);
 
 if(typeof BigInteger === 'undefined') {
   var BigInteger = forge.jsbn.BigInteger;
@@ -12117,7 +12117,7 @@ function M(o, a, b) {
 
 /***/ }),
 
-/***/ 7009:
+/***/ 9204:
 /***/ ((module) => {
 
 /**
@@ -12137,7 +12137,7 @@ module.exports = {
 
 /***/ }),
 
-/***/ 6080:
+/***/ 9590:
 /***/ ((module, __unused_webpack_exports, __webpack_require__) => {
 
 /**
@@ -12149,9 +12149,9 @@ module.exports = {
  *
  * Copyright (c) 2010-2012 Digital Bazaar, Inc. All rights reserved.
  */
-var forge = __webpack_require__(7009);
-__webpack_require__(3605);
-__webpack_require__(2365);
+var forge = __webpack_require__(9204);
+__webpack_require__(3273);
+__webpack_require__(4);
 
 /* HMAC API */
 var hmac = module.exports = forge.hmac = forge.hmac || {};
@@ -12290,7 +12290,7 @@ hmac.create = function() {
 
 /***/ }),
 
-/***/ 1632:
+/***/ 5609:
 /***/ ((module, __unused_webpack_exports, __webpack_require__) => {
 
 /**
@@ -12300,39 +12300,39 @@ hmac.create = function() {
  *
  * Copyright 2011-2016 Digital Bazaar, Inc.
  */
-module.exports = __webpack_require__(7009);
-__webpack_require__(8315);
-__webpack_require__(3444);
-__webpack_require__(1598);
-__webpack_require__(9671);
-__webpack_require__(5569);
-__webpack_require__(3436);
-__webpack_require__(1353);
-__webpack_require__(6080);
-__webpack_require__(8517);
-__webpack_require__(9105);
-__webpack_require__(3676);
-__webpack_require__(6439);
-__webpack_require__(8322);
-__webpack_require__(2966);
-__webpack_require__(4188);
-__webpack_require__(1335);
-__webpack_require__(939);
-__webpack_require__(9727);
-__webpack_require__(4846);
-__webpack_require__(3858);
-__webpack_require__(3385);
-__webpack_require__(6660);
-__webpack_require__(6994);
-__webpack_require__(2635);
-__webpack_require__(7909);
-__webpack_require__(4545);
-__webpack_require__(2365);
+module.exports = __webpack_require__(9204);
+__webpack_require__(6075);
+__webpack_require__(72);
+__webpack_require__(2037);
+__webpack_require__(4674);
+__webpack_require__(7098);
+__webpack_require__(3363);
+__webpack_require__(145);
+__webpack_require__(9590);
+__webpack_require__(5236);
+__webpack_require__(3623);
+__webpack_require__(1711);
+__webpack_require__(3462);
+__webpack_require__(8355);
+__webpack_require__(82);
+__webpack_require__(6372);
+__webpack_require__(6877);
+__webpack_require__(7696);
+__webpack_require__(1373);
+__webpack_require__(9828);
+__webpack_require__(7881);
+__webpack_require__(2702);
+__webpack_require__(6173);
+__webpack_require__(9931);
+__webpack_require__(7288);
+__webpack_require__(9138);
+__webpack_require__(2041);
+__webpack_require__(4);
 
 
 /***/ }),
 
-/***/ 8785:
+/***/ 7517:
 /***/ ((module, __unused_webpack_exports, __webpack_require__) => {
 
 // Copyright (c) 2005  Tom Wu
@@ -12383,7 +12383,7 @@ Address all questions regarding this license to:
   Tom Wu
   tjw@cs.Stanford.EDU
 */
-var forge = __webpack_require__(7009);
+var forge = __webpack_require__(9204);
 
 module.exports = forge.jsbn = forge.jsbn || {};
 
@@ -13603,7 +13603,7 @@ BigInteger.prototype.isProbablePrime = bnIsProbablePrime;
 
 /***/ }),
 
-/***/ 8517:
+/***/ 5236:
 /***/ ((module, __unused_webpack_exports, __webpack_require__) => {
 
 /**
@@ -13615,10 +13615,10 @@ BigInteger.prototype.isProbablePrime = bnIsProbablePrime;
  * Copyright (c) 2014 Lautaro Cozzani <lautaro.cozzani@scytl.com>
  * Copyright (c) 2014 Digital Bazaar, Inc.
  */
-var forge = __webpack_require__(7009);
-__webpack_require__(2365);
-__webpack_require__(6660);
-__webpack_require__(8785);
+var forge = __webpack_require__(9204);
+__webpack_require__(4);
+__webpack_require__(6173);
+__webpack_require__(7517);
 
 module.exports = forge.kem = forge.kem || {};
 
@@ -13778,7 +13778,7 @@ function _createKDF(kdf, md, counterStart, digestLength) {
 
 /***/ }),
 
-/***/ 9105:
+/***/ 3623:
 /***/ ((module, __unused_webpack_exports, __webpack_require__) => {
 
 /**
@@ -13788,8 +13788,8 @@ function _createKDF(kdf, md, counterStart, digestLength) {
  *
  * Copyright (c) 2008-2013 Digital Bazaar, Inc.
  */
-var forge = __webpack_require__(7009);
-__webpack_require__(2365);
+var forge = __webpack_require__(9204);
+__webpack_require__(4);
 
 /* LOG API */
 module.exports = forge.log = forge.log || {};
@@ -14102,7 +14102,7 @@ forge.log.consoleLogger = sConsoleLogger;
 
 /***/ }),
 
-/***/ 3676:
+/***/ 1711:
 /***/ ((module, __unused_webpack_exports, __webpack_require__) => {
 
 /**
@@ -14112,17 +14112,17 @@ forge.log.consoleLogger = sConsoleLogger;
  *
  * Copyright 2011-2017 Digital Bazaar, Inc.
  */
-module.exports = __webpack_require__(3605);
+module.exports = __webpack_require__(3273);
 
-__webpack_require__(5400);
-__webpack_require__(7499);
-__webpack_require__(9166);
-__webpack_require__(5368);
+__webpack_require__(9990);
+__webpack_require__(4827);
+__webpack_require__(6810);
+__webpack_require__(2502);
 
 
 /***/ }),
 
-/***/ 3605:
+/***/ 3273:
 /***/ ((module, __unused_webpack_exports, __webpack_require__) => {
 
 /**
@@ -14132,7 +14132,7 @@ __webpack_require__(5368);
  *
  * Copyright 2011-2017 Digital Bazaar, Inc.
  */
-var forge = __webpack_require__(7009);
+var forge = __webpack_require__(9204);
 
 module.exports = forge.md = forge.md || {};
 forge.md.algorithms = forge.md.algorithms || {};
@@ -14140,7 +14140,7 @@ forge.md.algorithms = forge.md.algorithms || {};
 
 /***/ }),
 
-/***/ 5400:
+/***/ 9990:
 /***/ ((module, __unused_webpack_exports, __webpack_require__) => {
 
 /**
@@ -14150,9 +14150,9 @@ forge.md.algorithms = forge.md.algorithms || {};
  *
  * Copyright (c) 2010-2014 Digital Bazaar, Inc.
  */
-var forge = __webpack_require__(7009);
-__webpack_require__(3605);
-__webpack_require__(2365);
+var forge = __webpack_require__(9204);
+__webpack_require__(3273);
+__webpack_require__(4);
 
 var md5 = module.exports = forge.md5 = forge.md5 || {};
 forge.md.md5 = forge.md.algorithms.md5 = md5;
@@ -14436,7 +14436,7 @@ function _update(s, w, bytes) {
 
 /***/ }),
 
-/***/ 6222:
+/***/ 5507:
 /***/ ((module, __unused_webpack_exports, __webpack_require__) => {
 
 /**
@@ -14446,8 +14446,8 @@ function _update(s, w, bytes) {
  *
  * Copyright 2012 Stefan Siegl <stesie@brokenpipe.de>
  */
-var forge = __webpack_require__(7009);
-__webpack_require__(6439);
+var forge = __webpack_require__(9204);
+__webpack_require__(3462);
 
 module.exports = forge.mgf = forge.mgf || {};
 forge.mgf.mgf1 = forge.mgf1;
@@ -14455,7 +14455,7 @@ forge.mgf.mgf1 = forge.mgf1;
 
 /***/ }),
 
-/***/ 6439:
+/***/ 3462:
 /***/ ((module, __unused_webpack_exports, __webpack_require__) => {
 
 /**
@@ -14467,8 +14467,8 @@ forge.mgf.mgf1 = forge.mgf1;
  * Copyright (c) 2012 Stefan Siegl <stesie@brokenpipe.de>
  * Copyright (c) 2014 Digital Bazaar, Inc.
  */
-var forge = __webpack_require__(7009);
-__webpack_require__(2365);
+var forge = __webpack_require__(9204);
+__webpack_require__(4);
 
 forge.mgf = forge.mgf || {};
 var mgf1 = module.exports = forge.mgf.mgf1 = forge.mgf1 = forge.mgf1 || {};
@@ -14519,7 +14519,7 @@ mgf1.create = function(md) {
 
 /***/ }),
 
-/***/ 1692:
+/***/ 270:
 /***/ ((module, __unused_webpack_exports, __webpack_require__) => {
 
 /**
@@ -14529,7 +14529,7 @@ mgf1.create = function(md) {
  *
  * Copyright (c) 2010-2013 Digital Bazaar, Inc.
  */
-var forge = __webpack_require__(7009);
+var forge = __webpack_require__(9204);
 
 forge.pki = forge.pki || {};
 var oids = module.exports = forge.pki.oids = forge.oids = forge.oids || {};
@@ -14689,7 +14689,7 @@ _IN('1.3.6.1.5.5.7.3.8', 'timeStamping');
 
 /***/ }),
 
-/***/ 2079:
+/***/ 458:
 /***/ ((module, __unused_webpack_exports, __webpack_require__) => {
 
 /**
@@ -14711,18 +14711,18 @@ _IN('1.3.6.1.5.5.7.3.8', 'timeStamping');
  *
  * EncryptedData ::= OCTET STRING
  */
-var forge = __webpack_require__(7009);
-__webpack_require__(8315);
-__webpack_require__(1598);
-__webpack_require__(3436);
-__webpack_require__(3605);
-__webpack_require__(1692);
-__webpack_require__(8322);
-__webpack_require__(2966);
-__webpack_require__(6660);
-__webpack_require__(6994);
-__webpack_require__(524);
-__webpack_require__(2365);
+var forge = __webpack_require__(9204);
+__webpack_require__(6075);
+__webpack_require__(2037);
+__webpack_require__(3363);
+__webpack_require__(3273);
+__webpack_require__(270);
+__webpack_require__(8355);
+__webpack_require__(82);
+__webpack_require__(6173);
+__webpack_require__(9931);
+__webpack_require__(1015);
+__webpack_require__(4);
 
 if(typeof BigInteger === 'undefined') {
   var BigInteger = forge.jsbn.BigInteger;
@@ -15719,7 +15719,7 @@ function createPbkdf2Params(salt, countBytes, dkLen, prfAlgorithm) {
 
 /***/ }),
 
-/***/ 8322:
+/***/ 8355:
 /***/ ((module, __unused_webpack_exports, __webpack_require__) => {
 
 /**
@@ -15731,16 +15731,16 @@ function createPbkdf2Params(salt, countBytes, dkLen, prfAlgorithm) {
  *
  * Copyright (c) 2010-2013 Digital Bazaar, Inc.
  */
-var forge = __webpack_require__(7009);
-__webpack_require__(6080);
-__webpack_require__(3605);
-__webpack_require__(2365);
+var forge = __webpack_require__(9204);
+__webpack_require__(9590);
+__webpack_require__(3273);
+__webpack_require__(4);
 
 var pkcs5 = forge.pkcs5 = forge.pkcs5 || {};
 
 var crypto;
 if(forge.util.isNodejs && !forge.options.usePureJavaScript) {
-  crypto = __webpack_require__(7418);
+  crypto = __webpack_require__(9956);
 }
 
 /**
@@ -15937,7 +15937,7 @@ module.exports = forge.pbkdf2 = pkcs5.pbkdf2 = function(
 
 /***/ }),
 
-/***/ 2966:
+/***/ 82:
 /***/ ((module, __unused_webpack_exports, __webpack_require__) => {
 
 /**
@@ -15968,8 +15968,8 @@ module.exports = forge.pbkdf2 = pkcs5.pbkdf2 = function(
  *
  * body: the binary-encoded body.
  */
-var forge = __webpack_require__(7009);
-__webpack_require__(2365);
+var forge = __webpack_require__(9204);
+__webpack_require__(4);
 
 // shortcut for pem API
 var pem = module.exports = forge.pem = forge.pem || {};
@@ -16174,7 +16174,7 @@ function ltrim(str) {
 
 /***/ }),
 
-/***/ 4188:
+/***/ 6372:
 /***/ ((module, __unused_webpack_exports, __webpack_require__) => {
 
 /**
@@ -16222,10 +16222,10 @@ function ltrim(str) {
  *
  * Copyright (c) 2013-2014 Digital Bazaar, Inc.
  */
-var forge = __webpack_require__(7009);
-__webpack_require__(2365);
-__webpack_require__(6660);
-__webpack_require__(7499);
+var forge = __webpack_require__(9204);
+__webpack_require__(4);
+__webpack_require__(6173);
+__webpack_require__(4827);
 
 // shortcut for PKCS#1 API
 var pkcs1 = module.exports = forge.pkcs1 = forge.pkcs1 || {};
@@ -16457,7 +16457,7 @@ function rsa_mgf1(seed, maskLength, hash) {
 
 /***/ }),
 
-/***/ 1335:
+/***/ 6877:
 /***/ ((module, __unused_webpack_exports, __webpack_require__) => {
 
 /**
@@ -16555,17 +16555,17 @@ function rsa_mgf1(seed, maskLength, hash) {
  *   ... -- For future extensions
  * }
  */
-var forge = __webpack_require__(7009);
-__webpack_require__(1598);
-__webpack_require__(6080);
-__webpack_require__(1692);
-__webpack_require__(393);
-__webpack_require__(2079);
-__webpack_require__(6660);
-__webpack_require__(524);
-__webpack_require__(7499);
-__webpack_require__(2365);
-__webpack_require__(256);
+var forge = __webpack_require__(9204);
+__webpack_require__(2037);
+__webpack_require__(9590);
+__webpack_require__(270);
+__webpack_require__(8249);
+__webpack_require__(458);
+__webpack_require__(6173);
+__webpack_require__(1015);
+__webpack_require__(4827);
+__webpack_require__(4);
+__webpack_require__(4382);
 
 // shortcut for asn.1 & PKI API
 var asn1 = forge.asn1;
@@ -17538,7 +17538,7 @@ p12.generateKey = forge.pbe.generatePkcs12Key;
 
 /***/ }),
 
-/***/ 939:
+/***/ 7696:
 /***/ ((module, __unused_webpack_exports, __webpack_require__) => {
 
 /**
@@ -17559,16 +17559,16 @@ p12.generateKey = forge.pbe.generatePkcs12Key;
  * a separate file pkcs7asn1.js, since those are referenced from other
  * PKCS standards like PKCS #12.
  */
-var forge = __webpack_require__(7009);
-__webpack_require__(8315);
-__webpack_require__(1598);
-__webpack_require__(3436);
-__webpack_require__(1692);
-__webpack_require__(2966);
-__webpack_require__(393);
-__webpack_require__(6660);
-__webpack_require__(2365);
-__webpack_require__(256);
+var forge = __webpack_require__(9204);
+__webpack_require__(6075);
+__webpack_require__(2037);
+__webpack_require__(3363);
+__webpack_require__(270);
+__webpack_require__(82);
+__webpack_require__(8249);
+__webpack_require__(6173);
+__webpack_require__(4);
+__webpack_require__(4382);
 
 // shortcut for ASN.1 API
 var asn1 = forge.asn1;
@@ -18802,7 +18802,7 @@ function _decryptContent(msg) {
 
 /***/ }),
 
-/***/ 393:
+/***/ 8249:
 /***/ ((module, __unused_webpack_exports, __webpack_require__) => {
 
 /**
@@ -18914,9 +18914,9 @@ function _decryptContent(msg) {
  *
  * EncryptedKey ::= OCTET STRING
  */
-var forge = __webpack_require__(7009);
-__webpack_require__(1598);
-__webpack_require__(2365);
+var forge = __webpack_require__(9204);
+__webpack_require__(2037);
+__webpack_require__(4);
 
 // shortcut for ASN.1 API
 var asn1 = forge.asn1;
@@ -19218,7 +19218,7 @@ p7v.recipientInfoValidator = {
 
 /***/ }),
 
-/***/ 9727:
+/***/ 1373:
 /***/ ((module, __unused_webpack_exports, __webpack_require__) => {
 
 /**
@@ -19229,17 +19229,17 @@ p7v.recipientInfoValidator = {
  *
  * Copyright (c) 2010-2013 Digital Bazaar, Inc.
  */
-var forge = __webpack_require__(7009);
-__webpack_require__(1598);
-__webpack_require__(1692);
-__webpack_require__(2079);
-__webpack_require__(2966);
-__webpack_require__(8322);
-__webpack_require__(1335);
-__webpack_require__(3385);
-__webpack_require__(524);
-__webpack_require__(2365);
-__webpack_require__(256);
+var forge = __webpack_require__(9204);
+__webpack_require__(2037);
+__webpack_require__(270);
+__webpack_require__(458);
+__webpack_require__(82);
+__webpack_require__(8355);
+__webpack_require__(6877);
+__webpack_require__(2702);
+__webpack_require__(1015);
+__webpack_require__(4);
+__webpack_require__(4382);
 
 // shortcut for asn.1 API
 var asn1 = forge.asn1;
@@ -19327,7 +19327,7 @@ pki.privateKeyInfoToPem = function(pki, maxline) {
 
 /***/ }),
 
-/***/ 4846:
+/***/ 9828:
 /***/ ((module, __unused_webpack_exports, __webpack_require__) => {
 
 /**
@@ -19337,10 +19337,10 @@ pki.privateKeyInfoToPem = function(pki, maxline) {
  *
  * Copyright (c) 2014 Digital Bazaar, Inc.
  */
-var forge = __webpack_require__(7009);
-__webpack_require__(2365);
-__webpack_require__(8785);
-__webpack_require__(6660);
+var forge = __webpack_require__(9204);
+__webpack_require__(4);
+__webpack_require__(7517);
+__webpack_require__(6173);
 
 (function() {
 
@@ -19631,7 +19631,7 @@ function getMillerRabinTests(bits) {
 
 /***/ }),
 
-/***/ 3858:
+/***/ 7881:
 /***/ ((module, __unused_webpack_exports, __webpack_require__) => {
 
 /**
@@ -19645,13 +19645,13 @@ function getMillerRabinTests(bits) {
  *
  * Copyright (c) 2010-2014 Digital Bazaar, Inc.
  */
-var forge = __webpack_require__(7009);
-__webpack_require__(2365);
+var forge = __webpack_require__(9204);
+__webpack_require__(4);
 
 var _crypto = null;
 if(forge.util.isNodejs && !forge.options.usePureJavaScript &&
   !process.versions['node-webkit']) {
-  _crypto = __webpack_require__(7418);
+  _crypto = __webpack_require__(9956);
 }
 
 /* PRNG API */
@@ -20057,7 +20057,7 @@ prng.create = function(plugin) {
 
 /***/ }),
 
-/***/ 3385:
+/***/ 2702:
 /***/ ((module, __unused_webpack_exports, __webpack_require__) => {
 
 /**
@@ -20067,9 +20067,9 @@ prng.create = function(plugin) {
  *
  * Copyright (c) 2012 Stefan Siegl <stesie@brokenpipe.de>
  */
-var forge = __webpack_require__(7009);
-__webpack_require__(6660);
-__webpack_require__(2365);
+var forge = __webpack_require__(9204);
+__webpack_require__(6173);
+__webpack_require__(4);
 
 // shortcut for PSS API
 var pss = module.exports = forge.pss = forge.pss || {};
@@ -20305,7 +20305,7 @@ pss.create = function(options) {
 
 /***/ }),
 
-/***/ 6660:
+/***/ 6173:
 /***/ ((module, __unused_webpack_exports, __webpack_require__) => {
 
 /**
@@ -20323,11 +20323,11 @@ pss.create = function(options) {
  *
  * Copyright (c) 2009-2014 Digital Bazaar, Inc.
  */
-var forge = __webpack_require__(7009);
-__webpack_require__(8315);
-__webpack_require__(9166);
-__webpack_require__(3858);
-__webpack_require__(2365);
+var forge = __webpack_require__(9204);
+__webpack_require__(6075);
+__webpack_require__(6810);
+__webpack_require__(7881);
+__webpack_require__(4);
 
 (function() {
 
@@ -20503,7 +20503,7 @@ module.exports = forge.random;
 
 /***/ }),
 
-/***/ 6994:
+/***/ 9931:
 /***/ ((module, __unused_webpack_exports, __webpack_require__) => {
 
 /**
@@ -20516,8 +20516,8 @@ module.exports = forge.random;
  * Information on the RC2 cipher is available from RFC #2268,
  * http://www.ietf.org/rfc/rfc2268.txt
  */
-var forge = __webpack_require__(7009);
-__webpack_require__(2365);
+var forge = __webpack_require__(9204);
+__webpack_require__(4);
 
 var piTable = [
   0xd9, 0x78, 0xf9, 0xc4, 0x19, 0xdd, 0xb5, 0xed, 0x28, 0xe9, 0xfd, 0x79, 0x4a, 0xa0, 0xd8, 0x9d,
@@ -20920,7 +20920,7 @@ forge.rc2.createDecryptionCipher = function(key, bits) {
 
 /***/ }),
 
-/***/ 524:
+/***/ 1015:
 /***/ ((module, __unused_webpack_exports, __webpack_require__) => {
 
 /**
@@ -20986,20 +20986,20 @@ forge.rc2.createDecryptionCipher = function(key, bits) {
  *
  * The OID for the RSA key algorithm is: 1.2.840.113549.1.1.1
  */
-var forge = __webpack_require__(7009);
-__webpack_require__(1598);
-__webpack_require__(8785);
-__webpack_require__(1692);
-__webpack_require__(4188);
-__webpack_require__(4846);
-__webpack_require__(6660);
-__webpack_require__(2365);
+var forge = __webpack_require__(9204);
+__webpack_require__(2037);
+__webpack_require__(7517);
+__webpack_require__(270);
+__webpack_require__(6372);
+__webpack_require__(9828);
+__webpack_require__(6173);
+__webpack_require__(4);
 
 if(typeof BigInteger === 'undefined') {
   var BigInteger = forge.jsbn.BigInteger;
 }
 
-var _crypto = forge.util.isNodejs ? __webpack_require__(7418) : null;
+var _crypto = forge.util.isNodejs ? __webpack_require__(9956) : null;
 
 // shortcut for asn.1 API
 var asn1 = forge.asn1;
@@ -22785,7 +22785,7 @@ function _base64ToBigInt(b64) {
 
 /***/ }),
 
-/***/ 7499:
+/***/ 4827:
 /***/ ((module, __unused_webpack_exports, __webpack_require__) => {
 
 /**
@@ -22795,9 +22795,9 @@ function _base64ToBigInt(b64) {
  *
  * Copyright (c) 2010-2015 Digital Bazaar, Inc.
  */
-var forge = __webpack_require__(7009);
-__webpack_require__(3605);
-__webpack_require__(2365);
+var forge = __webpack_require__(9204);
+__webpack_require__(3273);
+__webpack_require__(4);
 
 var sha1 = module.exports = forge.sha1 = forge.sha1 || {};
 forge.md.sha1 = forge.md.algorithms.sha1 = sha1;
@@ -23111,7 +23111,7 @@ function _update(s, w, bytes) {
 
 /***/ }),
 
-/***/ 9166:
+/***/ 6810:
 /***/ ((module, __unused_webpack_exports, __webpack_require__) => {
 
 /**
@@ -23123,9 +23123,9 @@ function _update(s, w, bytes) {
  *
  * Copyright (c) 2010-2015 Digital Bazaar, Inc.
  */
-var forge = __webpack_require__(7009);
-__webpack_require__(3605);
-__webpack_require__(2365);
+var forge = __webpack_require__(9204);
+__webpack_require__(3273);
+__webpack_require__(4);
 
 var sha256 = module.exports = forge.sha256 = forge.sha256 || {};
 forge.md.sha256 = forge.md.algorithms.sha256 = sha256;
@@ -23445,7 +23445,7 @@ function _update(s, w, bytes) {
 
 /***/ }),
 
-/***/ 5368:
+/***/ 2502:
 /***/ ((module, __unused_webpack_exports, __webpack_require__) => {
 
 /**
@@ -23460,9 +23460,9 @@ function _update(s, w, bytes) {
  *
  * Copyright (c) 2014-2015 Digital Bazaar, Inc.
  */
-var forge = __webpack_require__(7009);
-__webpack_require__(3605);
-__webpack_require__(2365);
+var forge = __webpack_require__(9204);
+__webpack_require__(3273);
+__webpack_require__(4);
 
 var sha512 = module.exports = forge.sha512 = forge.sha512 || {};
 
@@ -24013,7 +24013,7 @@ function _update(s, w, bytes) {
 
 /***/ }),
 
-/***/ 2635:
+/***/ 7288:
 /***/ ((module, __unused_webpack_exports, __webpack_require__) => {
 
 /**
@@ -24026,12 +24026,12 @@ function _update(s, w, bytes) {
  *
  * @author https://github.com/shellac
  */
-var forge = __webpack_require__(7009);
-__webpack_require__(8315);
-__webpack_require__(6080);
-__webpack_require__(5400);
-__webpack_require__(7499);
-__webpack_require__(2365);
+var forge = __webpack_require__(9204);
+__webpack_require__(6075);
+__webpack_require__(9590);
+__webpack_require__(9990);
+__webpack_require__(4827);
+__webpack_require__(4);
 
 var ssh = module.exports = forge.ssh = forge.ssh || {};
 
@@ -24256,7 +24256,7 @@ function _sha1() {
 
 /***/ }),
 
-/***/ 7909:
+/***/ 9138:
 /***/ ((module, __unused_webpack_exports, __webpack_require__) => {
 
 /**
@@ -24268,10 +24268,10 @@ function _sha1() {
  *
  * Copyright (c) 2009-2013 Digital Bazaar, Inc.
  */
-var forge = __webpack_require__(7009);
-__webpack_require__(5569);
-__webpack_require__(9105);
-__webpack_require__(2365);
+var forge = __webpack_require__(9204);
+__webpack_require__(7098);
+__webpack_require__(3623);
+__webpack_require__(4);
 
 // logging category
 var cat = 'forge.task';
@@ -24988,7 +24988,7 @@ forge.task.createCondition = function() {
 
 /***/ }),
 
-/***/ 4545:
+/***/ 2041:
 /***/ ((module, __unused_webpack_exports, __webpack_require__) => {
 
 /**
@@ -25223,15 +25223,15 @@ forge.task.createCondition = function() {
  * due to the large block size of existing MACs and the small size of the
  * timing signal.
  */
-var forge = __webpack_require__(7009);
-__webpack_require__(1598);
-__webpack_require__(6080);
-__webpack_require__(5400);
-__webpack_require__(2966);
-__webpack_require__(9727);
-__webpack_require__(6660);
-__webpack_require__(7499);
-__webpack_require__(2365);
+var forge = __webpack_require__(9204);
+__webpack_require__(2037);
+__webpack_require__(9590);
+__webpack_require__(9990);
+__webpack_require__(82);
+__webpack_require__(1373);
+__webpack_require__(6173);
+__webpack_require__(4827);
+__webpack_require__(4);
 
 /**
  * Generates pseudo random bytes by mixing the result of two hash functions,
@@ -29277,7 +29277,7 @@ forge.tls.createConnection = tls.createConnection;
 
 /***/ }),
 
-/***/ 2365:
+/***/ 4:
 /***/ ((module, __unused_webpack_exports, __webpack_require__) => {
 
 /**
@@ -29287,8 +29287,8 @@ forge.tls.createConnection = tls.createConnection;
  *
  * Copyright (c) 2010-2018 Digital Bazaar, Inc.
  */
-var forge = __webpack_require__(7009);
-var baseN = __webpack_require__(5596);
+var forge = __webpack_require__(9204);
+var baseN = __webpack_require__(1967);
 
 /* Utilities API */
 var util = module.exports = forge.util = forge.util || {};
@@ -32277,7 +32277,7 @@ util.estimateCores = function(options, callback) {
 
 /***/ }),
 
-/***/ 256:
+/***/ 4382:
 /***/ ((module, __unused_webpack_exports, __webpack_require__) => {
 
 /**
@@ -32389,17 +32389,17 @@ util.estimateCores = function(options, callback) {
  *   signature          BIT STRING
  * }
  */
-var forge = __webpack_require__(7009);
-__webpack_require__(8315);
-__webpack_require__(1598);
-__webpack_require__(3436);
-__webpack_require__(3605);
-__webpack_require__(6222);
-__webpack_require__(1692);
-__webpack_require__(2966);
-__webpack_require__(3385);
-__webpack_require__(524);
-__webpack_require__(2365);
+var forge = __webpack_require__(9204);
+__webpack_require__(6075);
+__webpack_require__(2037);
+__webpack_require__(3363);
+__webpack_require__(3273);
+__webpack_require__(5507);
+__webpack_require__(270);
+__webpack_require__(82);
+__webpack_require__(2702);
+__webpack_require__(1015);
+__webpack_require__(4);
 
 // shortcut for asn.1 API
 var asn1 = forge.asn1;
@@ -35617,7 +35617,7 @@ pki.verifyCertificateChain = function(caStore, chain, options) {
 
 /***/ }),
 
-/***/ 7371:
+/***/ 1272:
 /***/ ((module) => {
 
 "use strict";
@@ -35625,7 +35625,7 @@ module.exports = JSON.parse('{"name":"hybrid-crypto-js","version":"0.2.4","descr
 
 /***/ }),
 
-/***/ 7776:
+/***/ 6625:
 /***/ ((module, exports) => {
 
 exports = module.exports = SemVer
@@ -37228,7 +37228,7 @@ function coerce (version, options) {
 
 /***/ }),
 
-/***/ 316:
+/***/ 695:
 /***/ ((module) => {
 
 "use strict";
@@ -37262,7 +37262,7 @@ module.exports = getTarget;
 
 /***/ }),
 
-/***/ 2597:
+/***/ 3379:
 /***/ ((module) => {
 
 "use strict";
@@ -37366,7 +37366,7 @@ module.exports = function (list, options) {
 
 /***/ }),
 
-/***/ 4667:
+/***/ 9216:
 /***/ ((module) => {
 
 "use strict";
@@ -37384,7 +37384,7 @@ module.exports = insertStyleElement;
 
 /***/ }),
 
-/***/ 9774:
+/***/ 7795:
 /***/ ((module) => {
 
 "use strict";
@@ -37439,11 +37439,11 @@ module.exports = domAPI;
 
 /***/ }),
 
-/***/ 1766:
+/***/ 5877:
 /***/ ((module, __unused_webpack_exports, __webpack_require__) => {
 
-var v1 = __webpack_require__(2616);
-var v4 = __webpack_require__(7358);
+var v1 = __webpack_require__(3570);
+var v4 = __webpack_require__(1171);
 
 var uuid = v4;
 uuid.v1 = v1;
@@ -37454,7 +37454,7 @@ module.exports = uuid;
 
 /***/ }),
 
-/***/ 5594:
+/***/ 5327:
 /***/ ((module) => {
 
 /**
@@ -37487,7 +37487,7 @@ module.exports = bytesToUuid;
 
 /***/ }),
 
-/***/ 6880:
+/***/ 5217:
 /***/ ((module) => {
 
 // Unique ID creation requires a high quality random # generator.  In the
@@ -37528,11 +37528,11 @@ if (getRandomValues) {
 
 /***/ }),
 
-/***/ 2616:
+/***/ 3570:
 /***/ ((module, __unused_webpack_exports, __webpack_require__) => {
 
-var rng = __webpack_require__(6880);
-var bytesToUuid = __webpack_require__(5594);
+var rng = __webpack_require__(5217);
+var bytesToUuid = __webpack_require__(5327);
 
 // **`v1()` - Generate time-based UUID**
 //
@@ -37644,11 +37644,11 @@ module.exports = v1;
 
 /***/ }),
 
-/***/ 7358:
+/***/ 1171:
 /***/ ((module, __unused_webpack_exports, __webpack_require__) => {
 
-var rng = __webpack_require__(6880);
-var bytesToUuid = __webpack_require__(5594);
+var rng = __webpack_require__(5217);
+var bytesToUuid = __webpack_require__(5327);
 
 function v4(options, buf, offset) {
   var i = buf && offset || 0;
@@ -37680,7 +37680,7 @@ module.exports = v4;
 
 /***/ }),
 
-/***/ 4391:
+/***/ 9909:
 /***/ ((module) => {
 
 "use strict";
@@ -37688,7 +37688,7 @@ module.exports = "<div id=\"pizyds_rain_header_field\">\r\n    <p>\r\n        �
 
 /***/ }),
 
-/***/ 9666:
+/***/ 6476:
 /***/ ((module) => {
 
 "use strict";
@@ -37696,7 +37696,7 @@ module.exports = "雨课堂课件PDF下载工具";
 
 /***/ }),
 
-/***/ 9351:
+/***/ 8197:
 /***/ ((module) => {
 
 "use strict";
@@ -37704,7 +37704,7 @@ module.exports = "<span id=\"pizyds_rain_button_field\" class=\"<%= FIELD_CLASS 
 
 /***/ }),
 
-/***/ 7507:
+/***/ 2314:
 /***/ ((module) => {
 
 "use strict";
@@ -37712,7 +37712,7 @@ module.exports = "-----BEGIN PUBLIC KEY-----\r\nMIIBIjANBgkqhkiG9w0BAQEFAAOCAQ8A
 
 /***/ }),
 
-/***/ 7418:
+/***/ 9956:
 /***/ (() => {
 
 /* (ignored) */
@@ -37804,7 +37804,7 @@ var __webpack_exports__ = {};
 (() => {
 "use strict";
 
-;// CONCATENATED MODULE: PRPS\src\libs\common.js
+;// CONCATENATED MODULE: ./src/libs/common.js
 //运行环境配置
 var env_config = {
     _version: "0.0.0",
@@ -37817,8 +37817,8 @@ autoGMValue(env_config, "env_config");
 //编译信息
 var build_info = {
     name: "rain-classroom-pdf-direct-download",
-    version: "1.3.2",
-    timestamp: 1654533197339,
+    version: "1.3.3",
+    timestamp: 1789025251910,
 }
 
 //对自动添加客观题答案到PPT页面的配置
@@ -37890,6 +37890,7 @@ var time_object = {
 }
 
 var update_info_list = {
+    '1.3.3': `优化图片与 PDF 生成速度，升级 jsPDF，保留特殊图片及旧浏览器的转换回退`,
     '1.3.1': `优化了生成速度、报错信息，修复了图片格式兼容、面板不刷新的Bug`,
     '1.3.2': `外部库依赖改为国内的 75CDN，增加校验参数与开发时的校验比对脚本`
 }
@@ -37897,16 +37898,194 @@ var update_info_list = {
 var update_info = update_info_list[build_info.version] ? 
   update_info_list[build_info.version] : 
   '好像没有更新信息';
-// EXTERNAL MODULE: PRPS\node_modules\bootstrap-icons\icons\file-earmark-pdf.svg
-var PRPU_node_modules_bootstrap_icons_icons_file_earmark_pdf = __webpack_require__(5154);
-// EXTERNAL MODULE: PRPS\node_modules\bootstrap-icons\icons\gear-fill.svg
-var PRPU_node_modules_bootstrap_icons_icons_gear_fill = __webpack_require__(1984);
+
+// EXTERNAL MODULE: ./node_modules/bootstrap-icons/icons/file-earmark-pdf.svg
+var file_earmark_pdf = __webpack_require__(2559);
+// EXTERNAL MODULE: ./node_modules/bootstrap-icons/icons/gear-fill.svg
+var gear_fill = __webpack_require__(3736);
 ;// CONCATENATED MODULE: external "jQuery"
 const external_jQuery_namespaceObject = jQuery;
 var external_jQuery_default = /*#__PURE__*/__webpack_require__.n(external_jQuery_namespaceObject);
-// EXTERNAL MODULE: PRPS\node_modules\semver\semver.js
-var PRPU_node_modules_semver_semver = __webpack_require__(7776);
-;// CONCATENATED MODULE: PRPS\src\libs\public.js
+// EXTERNAL MODULE: ./node_modules/semver/semver.js
+var semver = __webpack_require__(6625);
+;// CONCATENATED MODULE: ./src/libs/jpeg_source.js
+/**
+ * 只允许无需浏览器旋转/色彩校正的 8-bit RGB JPEG 直嵌。
+ * 不以扩展名或 Content-Type 判断；未知 APP 标记也回退到 Canvas。
+ */
+function getDirectJpegSize(bytes){
+    if (bytes.length < 4 || bytes[0] !== 0xff || bytes[1] !== 0xd8 ||
+        bytes[bytes.length - 2] !== 0xff || bytes[bytes.length - 1] !== 0xd9) return null;
+
+    var offset = 2;
+    var size = null;
+    var jfif = false;
+    var scanning = false;
+    var scanned = false;
+    while (offset < bytes.length){
+        if (scanning){
+            while (offset < bytes.length && bytes[offset] !== 0xff) offset++;
+        }
+        if (bytes[offset++] !== 0xff) return null;
+        while (bytes[offset] === 0xff) offset++;
+        var marker = bytes[offset++];
+        if (scanning && (marker === 0 || (marker >= 0xd0 && marker <= 0xd7))) continue;
+        scanning = false;
+        if (marker === 0xd9) return offset === bytes.length && jfif && scanned ? size : null;
+        if (offset + 2 > bytes.length) return null;
+        var length = bytes[offset] * 256 + bytes[offset + 1];
+        if (length < 2 || offset + length > bytes.length) return null;
+
+        // APP1/APP2/APP14 等可能包含 EXIF、ICC、Adobe 色彩变换。
+        if (marker >= 0xe0 && marker <= 0xef){
+            if (marker !== 0xe0 || length < 16 ||
+                String.fromCharCode(...bytes.subarray(offset + 2, offset + 7)) !== 'JFIF\0') return null;
+            jfif = true;
+        } else if (marker >= 0xc0 && marker <= 0xcf && ![0xc4, 0xc8, 0xcc].includes(marker)){
+            if (![0xc0, 0xc2].includes(marker) || length !== 17 || bytes[offset + 2] !== 8 ||
+                bytes[offset + 7] !== 3 || size) return null;
+            // 普通 JFIF 使用 1/2/3 分量；RGB 标记等不明确的情况交给浏览器。
+            if (bytes[offset + 8] !== 1 || bytes[offset + 11] !== 2 || bytes[offset + 14] !== 3) return null;
+            size = {
+                width: bytes[offset + 5] * 256 + bytes[offset + 6],
+                height: bytes[offset + 3] * 256 + bytes[offset + 4]
+            };
+            if (!size.width || !size.height) return null;
+        } else if (marker === 0xda){
+            if (!size) return null;
+            scanning = scanned = true;
+        } else if (![0xc4, 0xdb, 0xdd, 0xfe].includes(marker)){
+            return null;
+        }
+        offset += length;
+    }
+    return null;
+}
+
+/** 获取字节失败不能阻断原有 Image 加载路径。 */
+async function fetchImageBytes(url){
+    if (typeof fetch !== 'function' || typeof AbortController !== 'function') return null;
+    var controller = new AbortController();
+    var timeout = setTimeout(() => controller.abort(), 5000);
+    try {
+        var response = await fetch(url, { credentials: 'same-origin', signal: controller.signal });
+        if (!response.ok) return null;
+        return new Uint8Array(await response.arrayBuffer());
+    } catch (err) {
+        return null;
+    } finally {
+        clearTimeout(timeout);
+    }
+}
+
+;// CONCATENATED MODULE: external "jspdf"
+const external_jspdf_namespaceObject = jspdf;
+;// CONCATENATED MODULE: ./src/libs/pdf_image.js
+
+
+// 此适配层依赖 processRGBA 的返回结构和 putImage 的 sMask 约定。
+// 版本不匹配时保留公开的 PNG API，不能静默使用未经验证的内部接口。
+const ADAPTER_VERSION = '4.2.1';
+
+function canPrepareFlate(){
+    return external_jspdf_namespaceObject.jsPDF.version === ADAPTER_VERSION &&
+        typeof CompressionStream === 'function' && typeof DecompressionStream === 'function' &&
+        typeof Blob === 'function' && typeof Blob.prototype.stream === 'function' &&
+        typeof Response === 'function';
+}
+
+async function deflate(bytes){
+    var stream = new Blob([bytes]).stream().pipeThrough(new CompressionStream('deflate'));
+    return new Uint8Array(await new Response(stream).arrayBuffer());
+}
+
+/**
+ * 读取像素仅用于本页编码，不与 PNG 或整份课件的 RGBA 列表同时保存。
+ * RGB 和 alpha 分别无损压缩；完全不透明时省略遮罩。
+ */
+async function canvasToPdfImage(canvas){
+    if (canPrepareFlate()){
+        try {
+            var pixels = canvas.getContext('2d').getImageData(0, 0, canvas.width, canvas.height).data;
+            var count = canvas.width * canvas.height;
+            var rgb = new Uint8Array(count * 3);
+            var alpha = new Uint8Array(count);
+            var opaque = true;
+            for (let i = 0, j = 0; i < pixels.length; i += 4){
+                rgb[j++] = pixels[i];
+                rgb[j++] = pixels[i + 1];
+                rgb[j++] = pixels[i + 2];
+                alpha[i / 4] = pixels[i + 3];
+                if (pixels[i + 3] !== 255) opaque = false;
+            }
+            pixels = null;
+            var [data, mask] = await Promise.all([deflate(rgb), opaque ? null : deflate(alpha)]);
+            return { kind: 'flate', width: canvas.width, height: canvas.height, data, mask };
+        } catch (err) {
+            // 压缩接口缺失、初始化失败等仍可使用原有无损 PNG 路径。
+        }
+    }
+    return { kind: 'PNG', width: canvas.width, height: canvas.height, data: canvas.toDataURL('image/png') };
+}
+
+async function flateToPng(image){
+    var inflate = async bytes => {
+        var stream = new Blob([bytes]).stream().pipeThrough(new DecompressionStream('deflate'));
+        return new Uint8Array(await new Response(stream).arrayBuffer());
+    };
+    var [rgb, alpha] = await Promise.all([inflate(image.data), image.mask ? inflate(image.mask) : null]);
+    var canvas = document.createElement('canvas');
+    canvas.width = image.width;
+    canvas.height = image.height;
+    try {
+        var ctx = canvas.getContext('2d');
+        var pixels = ctx.createImageData(image.width, image.height);
+        for (let i = 0, j = 0; i < pixels.data.length; i += 4){
+            pixels.data[i] = rgb[j++];
+            pixels.data[i + 1] = rgb[j++];
+            pixels.data[i + 2] = rgb[j++];
+            pixels.data[i + 3] = alpha ? alpha[i / 4] : 255;
+        }
+        ctx.putImageData(pixels, 0, 0);
+        return canvas.toDataURL('image/png');
+    } finally {
+        canvas.width = canvas.height = 0;
+    }
+}
+
+/** 把预压缩图像交给当前 doc，绝不修改 jsPDF 全局插件。 */
+async function addPdfImage(doc, image, options){
+    if (image.kind !== 'flate'){
+        doc.addImage({ ...options, imageData: image.data, format: image.kind, compression: 'FAST' });
+        return;
+    }
+    if (external_jspdf_namespaceObject.jsPDF.version !== ADAPTER_VERSION || typeof doc.processRGBA !== 'function' ||
+        !doc.__addimage__ || typeof doc.__addimage__.arrayBufferToBinaryString !== 'function'){
+        doc.addImage({ ...options, imageData: await flateToPng(image), format: 'PNG', compression: 'FAST' });
+        return;
+    }
+
+    var original = doc.processRGBA;
+    var toBinary = bytes => doc.__addimage__.arrayBufferToBinaryString(bytes);
+    var prepared = {
+        data: toBinary(image.data), filter: 'FlateDecode', predictor: 1,
+        colorSpace: 'DeviceRGB', bitsPerComponent: 8, width: image.width, height: image.height
+    };
+    if (image.mask) prepared.sMask = toBinary(image.mask);
+    // 显式 alias 避免对占位 RGBA 数据做哈希，导致不同页面复用同一图像。
+    var images = doc.internal.collections.addImage_images || {};
+    var alias = `pizyds-flate-${Object.keys(images).length}`;
+    doc.processRGBA = (unused, index, imageAlias) => ({ ...prepared, index, alias: imageAlias });
+    try {
+        doc.addImage({ ...options, imageData: { data: new Uint8ClampedArray(4), width: 1, height: 1 }, format: 'RGBA', alias });
+    } finally {
+        doc.processRGBA = original;
+    }
+}
+
+;// CONCATENATED MODULE: ./src/libs/public.js
+
+
 
 
 
@@ -37924,7 +38103,7 @@ function refreshProcessStatus(processStatus){
 }
 
 //修改自：http://www.jsfun.cn/#textBecomeImg
-//js使用canvas将文字转换成ImageData对象
+//答案保留透明 PNG，不再额外读取一份未被使用的像素。
 function text2img(text, fontsize, fontcolor){
     var canvas = document.createElement('canvas');
     canvas.height = parseInt(fontsize * 1.2);
@@ -37943,8 +38122,8 @@ function text2img(text, fontsize, fontcolor){
     ctx.textBaseline = 'middle';
     ctx.fillText(text, 0, fontsize/2);
 
-    var dta = ctx.getImageData(0, 0, canvas.width, canvas.height);
-    dta.url = canvas.toDataURL();
+    var dta = { kind: 'PNG', width: canvas.width, height: canvas.height, data: canvas.toDataURL('image/png') };
+    canvas.width = canvas.height = 0;
     return dta;
 }
 
@@ -37989,12 +38168,12 @@ function addSVGClass(svg, css){
 }
 
 function judgeVersionUpdate() {
-    if (PRPU_node_modules_semver_semver.SemVer.neq(env_config.version, build_info.version)){
-        if (PRPU_node_modules_semver_semver.SemVer.eq(env_config.version, "0.0.0")){
+    if (semver.SemVer.neq(env_config.version, build_info.version)){
+        if (semver.SemVer.eq(env_config.version, "0.0.0")){
             return "new";
-        } else if (PRPU_node_modules_semver_semver.SemVer.gt(env_config.version, build_info.version)){
+        } else if (semver.SemVer.gt(env_config.version, build_info.version)){
             return "down";
-        } else if (PRPU_node_modules_semver_semver.SemVer.lt(env_config.version, build_info.version)){
+        } else if (semver.SemVer.lt(env_config.version, build_info.version)){
             return "up";
         }
     } else {
@@ -38033,20 +38212,41 @@ const url2HTMLImageElement = (url) => new Promise((resolve, reject) => {
 });
 
 /**
- * 将图片链接转化为ImageData对象
+ * 将图片链接转化为 PDF 图像：受限 JPEG 直嵌或浏览器无损转换。
  * @param {string} url 图片链接
- * @return {ImageData} ImageData对象
+ * @return {Promise<Object>} 仅保存编码数据和尺寸
  */
 async function url2ImgData(url){
-    var img = await url2HTMLImageElement(url);
+    var bytes = await fetchImageBytes(url);
+    var size = bytes && getDirectJpegSize(bytes);
+    var objectURL;
+    var img;
+    if (bytes){
+        try {
+            objectURL = URL.createObjectURL(new Blob([bytes], { type: size ? 'image/jpeg' : '' }));
+            img = await url2HTMLImageElement(objectURL);
+        } catch (err) {
+            bytes = null;
+        } finally {
+            if (objectURL) URL.revokeObjectURL(objectURL);
+        }
+    }
+    // 包括 CSP 不允许 fetch/blob URL 的页面，继续沿用 Image 的加载方式。
+    if (!img) img = await url2HTMLImageElement(url);
+    if (bytes && size && size.width === img.width && size.height === img.height){
+        return { kind: 'JPEG', width: size.width, height: size.height, data: bytes };
+    }
+    bytes = null;
     var canvas = document.createElement('canvas');
     canvas.height = img.height;
     canvas.width = img.width;
     var ctx = canvas.getContext('2d');
     ctx.drawImage(img, 0, 0);
-    var dta = ctx.getImageData(0, 0, canvas.width, canvas.height);
-    dta.url = canvas.toDataURL();
-    return dta;
+    try {
+        return await canvasToPdfImage(canvas);
+    } finally {
+        canvas.width = canvas.height = 0;
+    }
 }
 
 var headerMessage = [];
@@ -38070,30 +38270,31 @@ function getHeaderMessage(){
     headerMessage = [];
     return temp
 }
-// EXTERNAL MODULE: PRPS\src\ejs\ejs_pizyds_rain_conf_panel.ejs
-var PRPU_src_ejs_ejs_pizyds_rain_conf_panel = __webpack_require__(4391);
-// EXTERNAL MODULE: PRPS\src\ejs\ejs_pizyds_rain_conf_title.ejs
-var PRPU_src_ejs_ejs_pizyds_rain_conf_title = __webpack_require__(9666);
-// EXTERNAL MODULE: PRPS\node_modules\ejs\ejs.js
-var PRPU_node_modules_ejs_ejs = __webpack_require__(8056);
-var PRPU_node_modules_ejs_ejs_default = /*#__PURE__*/__webpack_require__.n(PRPU_node_modules_ejs_ejs);
-// EXTERNAL MODULE: PRPS\node_modules\bootstrap\js\dist\popover.js
-var PRPU_node_modules_bootstrap_js_dist_popover = __webpack_require__(6960);
-// EXTERNAL MODULE: PRPS\node_modules\style-loader\dist\runtime\injectStylesIntoStyleTag.js
-var PRPU_node_modules_style_loader_dist_runtime_injectStylesIntoStyleTag = __webpack_require__(2597);
-var PRPU_node_modules_style_loader_dist_runtime_injectStylesIntoStyleTag_default = /*#__PURE__*/__webpack_require__.n(PRPU_node_modules_style_loader_dist_runtime_injectStylesIntoStyleTag);
-// EXTERNAL MODULE: PRPS\node_modules\style-loader\dist\runtime\styleDomAPI.js
-var PRPU_node_modules_style_loader_dist_runtime_styleDomAPI = __webpack_require__(9774);
-var PRPU_node_modules_style_loader_dist_runtime_styleDomAPI_default = /*#__PURE__*/__webpack_require__.n(PRPU_node_modules_style_loader_dist_runtime_styleDomAPI);
-// EXTERNAL MODULE: PRPS\node_modules\style-loader\dist\runtime\getTarget.js
-var PRPU_node_modules_style_loader_dist_runtime_getTarget = __webpack_require__(316);
-var PRPU_node_modules_style_loader_dist_runtime_getTarget_default = /*#__PURE__*/__webpack_require__.n(PRPU_node_modules_style_loader_dist_runtime_getTarget);
-// EXTERNAL MODULE: PRPS\node_modules\style-loader\dist\runtime\insertStyleElement.js
-var PRPU_node_modules_style_loader_dist_runtime_insertStyleElement = __webpack_require__(4667);
-var PRPU_node_modules_style_loader_dist_runtime_insertStyleElement_default = /*#__PURE__*/__webpack_require__.n(PRPU_node_modules_style_loader_dist_runtime_insertStyleElement);
-// EXTERNAL MODULE: PRPS\node_modules\css-loader\dist\cjs.js!PRPS\node_modules\postcss-loader\dist\cjs.js!PRPS\node_modules\sass-loader\dist\cjs.js!PRPS\src\styles\css_pizyds_rain.scss
-var PRPU_node_modules_css_loader_dist_cjs_js_PRPU_node_modules_postcss_loader_dist_cjs_js_PRPU_node_modules_sass_loader_dist_cjs_js_PRPU_src_styles_css_pizyds_rain = __webpack_require__(5324);
-;// CONCATENATED MODULE: PRPS\src\styles\css_pizyds_rain.scss
+
+// EXTERNAL MODULE: ./src/ejs/ejs_pizyds_rain_conf_panel.ejs
+var ejs_pizyds_rain_conf_panel = __webpack_require__(9909);
+// EXTERNAL MODULE: ./src/ejs/ejs_pizyds_rain_conf_title.ejs
+var ejs_pizyds_rain_conf_title = __webpack_require__(6476);
+// EXTERNAL MODULE: ./node_modules/ejs/ejs.js
+var ejs = __webpack_require__(5313);
+var ejs_default = /*#__PURE__*/__webpack_require__.n(ejs);
+// EXTERNAL MODULE: ./node_modules/bootstrap/js/dist/popover.js
+var popover = __webpack_require__(6101);
+// EXTERNAL MODULE: ./node_modules/style-loader/dist/runtime/injectStylesIntoStyleTag.js
+var injectStylesIntoStyleTag = __webpack_require__(3379);
+var injectStylesIntoStyleTag_default = /*#__PURE__*/__webpack_require__.n(injectStylesIntoStyleTag);
+// EXTERNAL MODULE: ./node_modules/style-loader/dist/runtime/styleDomAPI.js
+var styleDomAPI = __webpack_require__(7795);
+var styleDomAPI_default = /*#__PURE__*/__webpack_require__.n(styleDomAPI);
+// EXTERNAL MODULE: ./node_modules/style-loader/dist/runtime/getTarget.js
+var getTarget = __webpack_require__(695);
+var getTarget_default = /*#__PURE__*/__webpack_require__.n(getTarget);
+// EXTERNAL MODULE: ./node_modules/style-loader/dist/runtime/insertStyleElement.js
+var insertStyleElement = __webpack_require__(9216);
+var insertStyleElement_default = /*#__PURE__*/__webpack_require__.n(insertStyleElement);
+// EXTERNAL MODULE: ./node_modules/css-loader/dist/cjs.js!./node_modules/postcss-loader/dist/cjs.js!./node_modules/sass-loader/dist/cjs.js!./src/styles/css_pizyds_rain.scss
+var css_pizyds_rain = __webpack_require__(7789);
+;// CONCATENATED MODULE: ./src/styles/css_pizyds_rain.scss
 
       
       
@@ -38125,7 +38326,7 @@ options.setAttributes = function(style) {
         }
       };
 options.insert = function(style){
-    var target = PRPU_node_modules_style_loader_dist_runtime_getTarget_default()("head");
+    var target = getTarget_default()("head");
 
     if (!target) {
       throw new Error(
@@ -38135,25 +38336,25 @@ options.insert = function(style){
 
     target.appendChild(style);
   };
-options.domAPI = (PRPU_node_modules_style_loader_dist_runtime_styleDomAPI_default());
-options.insertStyleElement = (PRPU_node_modules_style_loader_dist_runtime_insertStyleElement_default());
+options.domAPI = (styleDomAPI_default());
+options.insertStyleElement = (insertStyleElement_default());
 
-var update = PRPU_node_modules_style_loader_dist_runtime_injectStylesIntoStyleTag_default()(PRPU_node_modules_css_loader_dist_cjs_js_PRPU_node_modules_postcss_loader_dist_cjs_js_PRPU_node_modules_sass_loader_dist_cjs_js_PRPU_src_styles_css_pizyds_rain/* default */.Z, options);
-
-
+var update = injectStylesIntoStyleTag_default()(css_pizyds_rain/* default */.Z, options);
 
 
-       /* harmony default export */ const PRPU_src_styles_css_pizyds_rain = (PRPU_node_modules_css_loader_dist_cjs_js_PRPU_node_modules_postcss_loader_dist_cjs_js_PRPU_node_modules_sass_loader_dist_cjs_js_PRPU_src_styles_css_pizyds_rain/* default */.Z && PRPU_node_modules_css_loader_dist_cjs_js_PRPU_node_modules_postcss_loader_dist_cjs_js_PRPU_node_modules_sass_loader_dist_cjs_js_PRPU_src_styles_css_pizyds_rain/* default.locals */.Z.locals ? PRPU_node_modules_css_loader_dist_cjs_js_PRPU_node_modules_postcss_loader_dist_cjs_js_PRPU_node_modules_sass_loader_dist_cjs_js_PRPU_src_styles_css_pizyds_rain/* default.locals */.Z.locals : undefined);
 
-// EXTERNAL MODULE: PRPS\node_modules\bootstrap-icons\icons\arrow-return-left.svg
-var PRPU_node_modules_bootstrap_icons_icons_arrow_return_left = __webpack_require__(9856);
-// EXTERNAL MODULE: PRPS\node_modules\bootstrap-icons\icons\github.svg
-var PRPU_node_modules_bootstrap_icons_icons_github = __webpack_require__(1739);
-// EXTERNAL MODULE: PRPS\node_modules\bootstrap-icons\icons\house.svg
-var PRPU_node_modules_bootstrap_icons_icons_house = __webpack_require__(7185);
-// EXTERNAL MODULE: PRPS\node_modules\bootstrap-icons\icons\code-slash.svg
-var PRPU_node_modules_bootstrap_icons_icons_code_slash = __webpack_require__(376);
-;// CONCATENATED MODULE: PRPS\src\libs\conf_panel.js
+
+       /* harmony default export */ const styles_css_pizyds_rain = (css_pizyds_rain/* default */.Z && css_pizyds_rain/* default.locals */.Z.locals ? css_pizyds_rain/* default.locals */.Z.locals : undefined);
+
+// EXTERNAL MODULE: ./node_modules/bootstrap-icons/icons/arrow-return-left.svg
+var arrow_return_left = __webpack_require__(2906);
+// EXTERNAL MODULE: ./node_modules/bootstrap-icons/icons/github.svg
+var github = __webpack_require__(6744);
+// EXTERNAL MODULE: ./node_modules/bootstrap-icons/icons/house.svg
+var house = __webpack_require__(3510);
+// EXTERNAL MODULE: ./node_modules/bootstrap-icons/icons/code-slash.svg
+var code_slash = __webpack_require__(2381);
+;// CONCATENATED MODULE: ./src/libs/conf_panel.js
 
 
 
@@ -38172,26 +38373,26 @@ var PRPU_node_modules_bootstrap_icons_icons_code_slash = __webpack_require__(376
  * @param {Element} buttonEle 需要注入悬浮窗的按钮
  * @return {void}
  */
-/* harmony default export */ function PRPU_src_libs_conf_panel(buttonEle){
-    var form_templ = PRPU_src_ejs_ejs_pizyds_rain_conf_panel;
-    var form_html = () => PRPU_node_modules_ejs_ejs_default().render(form_templ, {
+/* harmony default export */ function conf_panel(buttonEle){
+    var form_templ = ejs_pizyds_rain_conf_panel;
+    var form_html = () => ejs_default().render(form_templ, {
         BUILD_VERSION: build_info.version,
         BUILD_TIME: formatDate(new Date(build_info.timestamp)),
         ANS_ENABLED: ans_config.enabled,
         DRM_ENABLED: drm_config.enabled,
         FONT_SIZE: ans_config.fontSize,
         HEADER_MESSAGE: getHeaderMessage(),
-        DEFAULT_SVG: adjustSVGSize(PRPU_node_modules_bootstrap_icons_icons_arrow_return_left, 12),
-        HOUSE_SVG: adjustSVGSize(PRPU_node_modules_bootstrap_icons_icons_house, 12),
-        GITHUB_SVG: adjustSVGSize(PRPU_node_modules_bootstrap_icons_icons_github, 12),
-        CODE_SVG: adjustSVGSize(PRPU_node_modules_bootstrap_icons_icons_code_slash, 12)
+        DEFAULT_SVG: adjustSVGSize(arrow_return_left, 12),
+        HOUSE_SVG: adjustSVGSize(house, 12),
+        GITHUB_SVG: adjustSVGSize(github, 12),
+        CODE_SVG: adjustSVGSize(code_slash, 12)
     });
     var container = external_jQuery_default()(".pizyds_rain")[0];
     external_jQuery_default()(container).off();
 
     // eslint-disable-next-line no-unused-vars
     external_jQuery_default()(buttonEle).popover({
-        title: PRPU_node_modules_ejs_ejs_default().render(PRPU_src_ejs_ejs_pizyds_rain_conf_title),
+        title: ejs_default().render(ejs_pizyds_rain_conf_title),
         container,
         content: form_html,
         html: true,
@@ -38269,7 +38470,7 @@ function formatDate(date){
 	return [yyyy, MM, dd].join('-')
 }
 
-;// CONCATENATED MODULE: PRPS\src\libs\get_url_slides.js
+;// CONCATENATED MODULE: ./src/libs/get_url_slides.js
 /**
  * PPT图片链接提取
  * @param {HTMLElement} el_dialog 整体 dialog DOM 对象
@@ -38291,44 +38492,52 @@ function get_url_slides(el_dialog){
         return new Array();
     }
 }
-;// CONCATENATED MODULE: PRPS\src\libs\image_process.js
+;// CONCATENATED MODULE: ./src/libs/image_process.js
 
 
 /**
- * 借助Canvas，进行图片下载与并转化为ImageData(RGBAData)
+ * 有界准备图像，避免异步压缩期间同时保留整份课件的 Canvas/像素。
  * @param url_slides 图片链接列表
  * @return {Promise}
  */
-/* harmony default export */ function PRPU_src_libs_image_process(url_slides){
-    var promiseList = new Array(url_slides.length);
+/* harmony default export */ async function image_process(url_slides){
+    var images = new Array(url_slides.length);
     var finished_num = 0;
+    var next_index = 0;
+    var failed = false;
     var count_finished_num = (index) => {
         var processStatus = `${++finished_num}/${url_slides.length}`;
         refreshProcessStatus(`处理图片(${processStatus})`);
         console.log(`雨课堂课件PDF下载工具：${processStatus} - 第${index+1}页 - ${url_slides[index]}`);
     }
-    for (let i = 0; i < url_slides.length; i++){
-        promiseList[i] = url2ImgData(url_slides[i]).then(ImageData => {
-            count_finished_num(i);
-            return ImageData;
-        }).catch(err => {
-            console.error(err);
-            refreshProcessStatus(false);
-            refreshHeaderMessage(`图像处理出错（第${i+1}页：${url_slides[i]}）`, 'Warn');
-            throw err;
-        });
-    }
-    return Promise.all(promiseList);
+    var worker = async () => {
+        while (!failed && next_index < url_slides.length){
+            let i = next_index++;
+            try {
+                images[i] = await url2ImgData(url_slides[i]);
+                if (!failed) count_finished_num(i);
+            } catch (err) {
+                if (!failed){
+                    failed = true;
+                    console.error(err);
+                    refreshProcessStatus(false);
+                    refreshHeaderMessage(`图像处理出错（第${i+1}页：${url_slides[i]}）`, 'Warn');
+                }
+                throw err;
+            }
+        }
+    };
+    await Promise.all(Array.from({ length: Math.min(3, url_slides.length) }, worker));
+    return images;
 }
-;// CONCATENATED MODULE: external "jspdf"
-const external_jspdf_namespaceObject = jspdf;
-// EXTERNAL MODULE: PRPS\src\key\rsa_2048_pub.pem
-var PRPU_src_key_rsa_2048_pub = __webpack_require__(7507);
-// EXTERNAL MODULE: PRPS\node_modules\uuid\index.js
-var PRPU_node_modules_uuid_index = __webpack_require__(1766);
-// EXTERNAL MODULE: PRPS\node_modules\hybrid-crypto-js\lib\index.js
-var PRPU_node_modules_hybrid_crypto_js_lib_index = __webpack_require__(7900);
-;// CONCATENATED MODULE: PRPS\src\libs\rsa_drm.js
+
+// EXTERNAL MODULE: ./src/key/rsa_2048_pub.pem
+var rsa_2048_pub = __webpack_require__(2314);
+// EXTERNAL MODULE: ./node_modules/uuid/index.js
+var uuid = __webpack_require__(5877);
+// EXTERNAL MODULE: ./node_modules/hybrid-crypto-js/lib/index.js
+var lib = __webpack_require__(9882);
+;// CONCATENATED MODULE: ./src/libs/rsa_drm.js
 
 
 
@@ -38336,7 +38545,7 @@ var PRPU_node_modules_hybrid_crypto_js_lib_index = __webpack_require__(7900);
 
 
 //小众的库，CDN上对WEB的模块引出方式和NODE有一点不一样
-var crypt = new PRPU_node_modules_hybrid_crypto_js_lib_index.Crypt({ aesKeySize: 128 });
+var crypt = new lib.Crypt({ aesKeySize: 128 });
 
 /**
  * 生成 DRM 信息
@@ -38347,10 +38556,10 @@ function generateUserID(){
         build_info: build_info,
         page_info: {url: window.location.href, timestamp: Date.now()},
         user_profile: generateUserProfile(),
-        salt: (0,PRPU_node_modules_uuid_index.v4)()
+        salt: (0,uuid.v4)()
     };
     var drm_text = JSON.stringify(drm_json);
-    var drm_rsa_json = crypt.encrypt(PRPU_src_key_rsa_2048_pub, drm_text); 
+    var drm_rsa_json = crypt.encrypt(rsa_2048_pub, drm_text); 
     var drm_rsa_obj = JSON.parse(drm_rsa_json);
     var drm_rsa_obj_keys = {};
     drm_rsa_obj_keys.fingerprint = Object.keys(drm_rsa_obj.keys)[0];
@@ -38396,7 +38605,8 @@ function hexFingerprint2Base64(hex){
 function randomIntFromInterval(min, max) {
     return Math.floor(Math.random() * (max - min + 1) + min)
 }
-;// CONCATENATED MODULE: PRPS\src\libs\pdf_process.js
+;// CONCATENATED MODULE: ./src/libs/pdf_process.js
+
 
 
 
@@ -38409,7 +38619,7 @@ function randomIntFromInterval(min, max) {
  * @param answer_list 答案列表
  * @return {Promise}
  */
-/* harmony default export */ async function PRPU_src_libs_pdf_process(img_list, filename, answer_list){
+/* harmony default export */ async function pdf_process(img_list, filename, answer_list){
     console.groupCollapsed("雨课堂课件PDF下载工具：生成PDF...");
     var doc = new external_jspdf_namespaceObject.jsPDF({
         orientation: "landscape",
@@ -38440,28 +38650,22 @@ function randomIntFromInterval(min, max) {
  */
 async function addPPT(index, doc, img_list, answer_list){
     console.log(`雨课堂课件PDF下载工具：第 ${index+1} 页 - PPT`);
-    doc.addImage({
-        imageData: img_list[index].url,
-        format: 'PNG',
+    await addPdfImage(doc, img_list[index], {
         x: 0,
         y: 0,
         width: img_list[index].width,
-        height: img_list[index].height,
-        compression: 'FAST'
+        height: img_list[index].height
     });
     if (ans_config.enabled){
         let answer_item = answer_list.find(obj => obj.index == index);
         if (answer_item && answer_item.ans != "") {
             let answer_img = text2img(answer_item.ans, ans_config.fontSize, ans_config.fontColor);
             console.log(`雨课堂课件PDF下载工具：第 ${index+1} 页 - 答案 - ${answer_item.ans}`);
-            doc.addImage({
-                imageData: answer_img.url,
-                format: 'PNG',
+            await addPdfImage(doc, answer_img, {
                 x: img_list[index].width - answer_img.width - ans_config.right,
                 y: ans_config.up,
                 width: answer_img.width,
-                height: answer_img.height,
-                compression: 'FAST'
+                height: answer_img.height
             });
         }
     }
@@ -38485,7 +38689,8 @@ function injectXMP(doc, size){
         doc.text(size[1]*0.1, size[1]*0.1, [drm_explain, userID], { baseline: "top", maxWidth: 1000});
     }
 }
-;// CONCATENATED MODULE: PRPS\src\libs\get_html_slides.js
+
+;// CONCATENATED MODULE: ./src/libs/get_html_slides.js
 /**
  * PPT HTML Class 标注（针对发布的“课件”类型）
  * @param el_dialog 整体 dialog DOM 对象
@@ -38509,7 +38714,8 @@ function get_html_slides(el_dialog){
 ;// CONCATENATED MODULE: external "html2canvas"
 const external_html2canvas_namespaceObject = html2canvas;
 var external_html2canvas_default = /*#__PURE__*/__webpack_require__.n(external_html2canvas_namespaceObject);
-;// CONCATENATED MODULE: PRPS\src\libs\html2canvas_hd.js
+;// CONCATENATED MODULE: ./src/libs/html2canvas_hd.js
+
 
 
 
@@ -38552,7 +38758,7 @@ async function render(index, { el_ppts, processStatus }){
         useCORS: true,
         canvas:c,
         onclone: clonedDocument => oncloneFunction(clonedDocument, index, { c, pos })
-    }).then(() => {
+    }).then(async () => {
         console.groupEnd();
         //压缩尺寸，低采样
         console.log(`雨课堂课件PDF下载工具：${processStatus} - 低采样`);
@@ -38561,38 +38767,41 @@ async function render(index, { el_ppts, processStatus }){
         c2.height = pos.o.height * hd_output_sacle;
         var ctx2 = c2.getContext('2d');
         ctx2.drawImage(c, 0, 0, c2.width, c2.height);
-        var dta = ctx2.getImageData(0, 0, c2.width, c2.height);
-        dta.url = c2.toDataURL();
-        return dta;
+        try {
+            return await canvasToPdfImage(c2);
+        } finally {
+            c2.width = c2.height = 0;
+        }
     }).catch(err => {
         console.error(err);
         refreshProcessStatus(false);
         refreshHeaderMessage(`HTML转高清Canvas出错（第${index+1}页）`, 'Warn');
         throw err;
-    });
+    }).finally(() => { c.width = c.height = 0; });
 }
 
 /**
  * HTML转高清Canvas，一大堆神奇操作驯服原版html2canvas
- * @return {Array} PPT 的 RAW 图片
+ * @return {Promise<Array>} PPT 的编码图像
  */
-/* harmony default export */ async function PRPU_src_libs_html2canvas_hd() {
+/* harmony default export */ async function html2canvas_hd() {
     console.groupCollapsed("雨课堂课件PDF下载工具：HTML转高清Canvas...");
 
-    var RGBAData_ppts = [];
+    var images = [];
     var el_ppts = document.getElementsByClassName("pizyds_el_ppt");
     refreshProcessStatus("转换HTML...");
     for (let i = 0; i < el_ppts.length; i++){
         var processStatus = `${i+1}/${el_ppts.length}`;
         refreshProcessStatus(`转换HTML(${processStatus})`);
-        RGBAData_ppts[i] = await render(i, { el_ppts, processStatus });
-        console.log(`雨课堂课件PDF下载工具：${processStatus} - 第${i+1}页 - size: ${RGBAData_ppts[i].data.length}, ${RGBAData_ppts[i].width}x${RGBAData_ppts[i].height}`);
+        images[i] = await render(i, { el_ppts, processStatus });
+        console.log(`雨课堂课件PDF下载工具：${processStatus} - 第${i+1}页 - ${images[i].width}x${images[i].height}`);
     }
     console.groupEnd();
     console.log(`雨课堂课件PDF下载工具：完成转换`);
-    return RGBAData_ppts;
+    return images;
 }
-;// CONCATENATED MODULE: PRPS\src\libs\get_answers.js
+
+;// CONCATENATED MODULE: ./src/libs/get_answers.js
 /**
  * 获取客观题答案
  * @param url_slides PPT URL 列表
@@ -38616,7 +38825,7 @@ function get_answers(url_slides){
     console.groupEnd();
     return answer_list;
 }
-;// CONCATENATED MODULE: PRPS\src\libs\download_process.js
+;// CONCATENATED MODULE: ./src/libs/download_process.js
 
 
 
@@ -38632,7 +38841,7 @@ function get_answers(url_slides){
  * @param url_type URL 类型
  * @return {void}
  */
-/* harmony default export */ function PRPU_src_libs_download_process(el_dialog, url_type = 1){
+/* harmony default export */ function download_process(el_dialog, url_type = 1){
     var type_fun = [{
         type: 0,
         fun: () => {
@@ -38646,7 +38855,7 @@ function get_answers(url_slides){
             if (url_slides.length > 0){
                 refreshProcessStatus("处理图片...");
                 console.groupCollapsed("雨课堂课件PDF下载工具：处理图片...");
-                PRPU_src_libs_image_process(url_slides)
+                return image_process(url_slides)
                     .then(async img_list => {
                     console.groupEnd();
                     refreshProcessStatus("生成PDF...");
@@ -38654,14 +38863,17 @@ function get_answers(url_slides){
                     var ppt_name = document.getElementsByClassName("ppt_name")[0].innerText;
                     var filename = ppt_name + ".pdf";
                     var answer_list = ans_config.enabled ? get_answers(url_slides): [];
-                    await PRPU_src_libs_pdf_process(img_list, filename, answer_list).catch(err => {
+                    await pdf_process(img_list, filename, answer_list).catch(err => {
                         console.error(err);
                         refreshProcessStatus(false);
                         refreshHeaderMessage("PDF生成出错", 'Warn');
                         throw err;
                     });
                     refreshProcessStatus(false);
-                })
+                }).catch(err => {
+                    console.error(err);
+                    refreshProcessStatus(false);
+                });
             } else{
                 refreshProcessStatus(false);
                 refreshHeaderMessage("没有提取到图片", 'Warn');
@@ -38674,20 +38886,23 @@ function get_answers(url_slides){
             if (html_slides){
                 refreshProcessStatus("处理HTML...");
                 //HTML转图片
-                PRPU_src_libs_html2canvas_hd().then(async img_list => {
+                return html2canvas_hd().then(async img_list => {
                     refreshProcessStatus("生成PDF...");
                     await sleep(200);
                     var ppt_name = document.getElementsByClassName("ppt_name")[0].innerText;
                     var filename = ppt_name + ".pdf";
                     var answer_list = [];
-                    await PRPU_src_libs_pdf_process(img_list, filename, answer_list).catch(err => {
+                    await pdf_process(img_list, filename, answer_list).catch(err => {
                         console.error(err);
                         refreshProcessStatus(false);
                         refreshHeaderMessage("PDF生成出错", 'Warn');
                         throw err;
                     });
                     refreshProcessStatus(false);
-                })
+                }).catch(err => {
+                    console.error(err);
+                    refreshProcessStatus(false);
+                });
             } else{
                 refreshProcessStatus(false);
                 refreshHeaderMessage("没有提取到图片", 'Warn');
@@ -38697,9 +38912,9 @@ function get_answers(url_slides){
     return type_fun.find(value => value.type == url_type).fun();
 }
 
-// EXTERNAL MODULE: PRPS\src\ejs\ejs_pizyds_rain_download_button.ejs
-var PRPU_src_ejs_ejs_pizyds_rain_download_button = __webpack_require__(9351);
-;// CONCATENATED MODULE: PRPS\src\libs\button_download.js
+// EXTERNAL MODULE: ./src/ejs/ejs_pizyds_rain_download_button.ejs
+var ejs_pizyds_rain_download_button = __webpack_require__(8197);
+;// CONCATENATED MODULE: ./src/libs/button_download.js
 
 
 
@@ -38728,13 +38943,13 @@ function button_download(el_dialog, url_type = 1){
     if (external_jQuery_default()(el_header).find("#pizyds_rain_button_field").length == 0){
         try {
             external_jQuery_default()(el_dialog).addClass("pizyds_rain"); //自定义CSS启用的条件
-            var template = PRPU_node_modules_ejs_ejs_default().compile(PRPU_src_ejs_ejs_pizyds_rain_download_button);
+            var template = ejs_default().compile(ejs_pizyds_rain_download_button);
             var data = Object.assign(data_on_type["base"], data_on_type[url_type]);
             var html = template(data);
             external_jQuery_default()(el_header).find(`.${data.CLASS}`).first().before(html);
             external_jQuery_default()("#pizyds_rain_download_button").off();
-            external_jQuery_default()("#pizyds_rain_download_button").on("click", () => PRPU_src_libs_download_process(el_dialog, url_type));
-            PRPU_src_libs_conf_panel(external_jQuery_default()("#pizyds_rain_config_button"));
+            external_jQuery_default()("#pizyds_rain_download_button").on("click", () => download_process(el_dialog, url_type));
+            conf_panel(external_jQuery_default()("#pizyds_rain_config_button"));
 
             if (url_type == 2) refreshHeaderMessage('“课件”类型不支持添加选择题答案', 'Info', false);
             console.log(`雨课堂课件PDF下载工具：按钮注入成功 - type ${url_type}`);
@@ -38749,9 +38964,9 @@ var data_on_type = {
     base: {
         CLASS: "",
         FIELD_CLASS: "",
-        DOWNLOAD_BUTTON_ICON: adjustSVGSize(PRPU_node_modules_bootstrap_icons_icons_file_earmark_pdf, 14),
-        CONFIG_BUTTON_ICON: adjustSVGSize(PRPU_node_modules_bootstrap_icons_icons_gear_fill, 14),
-        RUNNING_BUTTON_ICON: addSVGClass(adjustSVGSize(PRPU_node_modules_bootstrap_icons_icons_gear_fill, 14), 'rotating')
+        DOWNLOAD_BUTTON_ICON: adjustSVGSize(file_earmark_pdf, 14),
+        CONFIG_BUTTON_ICON: adjustSVGSize(gear_fill, 14),
+        RUNNING_BUTTON_ICON: addSVGClass(adjustSVGSize(gear_fill, 14), 'rotating')
     },
     1: {
         CLASS: "print",
@@ -38766,7 +38981,7 @@ var header_on_type = {
     1: (el_dialog) => external_jQuery_default()(el_dialog).find(".layout_header").first(),
     2: (el_dialog) => external_jQuery_default()(el_dialog).find(".layout-header").first()
 }
-;// CONCATENATED MODULE: PRPS\src\index.js
+;// CONCATENATED MODULE: ./src/index.js
 
 
 

@@ -1,5 +1,6 @@
 import { refreshProcessStatus, refreshHeaderMessage, removeElement } from "./public.js";
 import html2canvas from "html2canvas";
+import { canvasToPdfImage } from './pdf_image.js';
 
 var hd_sample_sacle = 4;
 var hd_output_sacle = 2;
@@ -40,7 +41,7 @@ async function render(index, { el_ppts, processStatus }){
         useCORS: true,
         canvas:c,
         onclone: clonedDocument => oncloneFunction(clonedDocument, index, { c, pos })
-    }).then(() => {
+    }).then(async () => {
         console.groupEnd();
         //压缩尺寸，低采样
         console.log(`雨课堂课件PDF下载工具：${processStatus} - 低采样`);
@@ -49,34 +50,36 @@ async function render(index, { el_ppts, processStatus }){
         c2.height = pos.o.height * hd_output_sacle;
         var ctx2 = c2.getContext('2d');
         ctx2.drawImage(c, 0, 0, c2.width, c2.height);
-        var dta = ctx2.getImageData(0, 0, c2.width, c2.height);
-        dta.url = c2.toDataURL();
-        return dta;
+        try {
+            return await canvasToPdfImage(c2);
+        } finally {
+            c2.width = c2.height = 0;
+        }
     }).catch(err => {
         console.error(err);
         refreshProcessStatus(false);
         refreshHeaderMessage(`HTML转高清Canvas出错（第${index+1}页）`, 'Warn');
         throw err;
-    });
+    }).finally(() => { c.width = c.height = 0; });
 }
 
 /**
  * HTML转高清Canvas，一大堆神奇操作驯服原版html2canvas
- * @return {Array} PPT 的 RAW 图片
+ * @return {Promise<Array>} PPT 的编码图像
  */
 export default async function(){
     console.groupCollapsed("雨课堂课件PDF下载工具：HTML转高清Canvas...");
 
-    var RGBAData_ppts = [];
+    var images = [];
     var el_ppts = document.getElementsByClassName("pizyds_el_ppt");
     refreshProcessStatus("转换HTML...");
     for (let i = 0; i < el_ppts.length; i++){
         var processStatus = `${i+1}/${el_ppts.length}`;
         refreshProcessStatus(`转换HTML(${processStatus})`);
-        RGBAData_ppts[i] = await render(i, { el_ppts, processStatus });
-        console.log(`雨课堂课件PDF下载工具：${processStatus} - 第${i+1}页 - size: ${RGBAData_ppts[i].data.length}, ${RGBAData_ppts[i].width}x${RGBAData_ppts[i].height}`);
+        images[i] = await render(i, { el_ppts, processStatus });
+        console.log(`雨课堂课件PDF下载工具：${processStatus} - 第${i+1}页 - ${images[i].width}x${images[i].height}`);
     }
     console.groupEnd();
     console.log(`雨课堂课件PDF下载工具：完成转换`);
-    return RGBAData_ppts;
+    return images;
 }

@@ -7,12 +7,13 @@ const crypto = require('crypto');
 const httpsProxyAgent = require('https-proxy-agent');
 
 
-const sources = ["jsdelivr", "jsdelivr_fastly", "bcecdn_pizyds", "baomitu"]
+const sources = ["jsdelivr", "jsdelivr_fastly", "bcecdn_pizyds", "baomitu", "cdnjs"]
 const modes = ["dev", "prod"]
 
 const instance = axios.create({
-    httpsAgent: httpsProxyAgent('http://localhost:10809'),
-    timeout: 10000,
+    ...(process.env.CDN_PROXY ? { httpsAgent: httpsProxyAgent(process.env.CDN_PROXY), proxy: false } : {}),
+    timeout: 20000,
+    responseType: 'arraybuffer',
 });
 
 const allEqual = arr => arr.every( v => v === arr[0] )
@@ -28,7 +29,17 @@ async function getRequiresHash(requires, sources, modes) {
                 let url = r[mode][source]
                 if (url != null) {
                     return instance.get(url)
-                      .then(response => response.data)
+                      .then(response => {
+                          let data = Buffer.from(response.data);
+                          let text = data.toString('utf8');
+                          if (data.length < 1000 || /^\s*(?:404:|<!doctype|<html)/i.test(text)) {
+                              throw new Error(`Invalid JavaScript response: ${url}`);
+                          }
+                          if (r.name === 'jspdf' && !text.includes('Version 4.2.1')) {
+                              throw new Error(`Unexpected jsPDF version: ${url}`);
+                          }
+                          return data;
+                      })
                       .then(data => crypto.createHash('sha256').update(data).digest('hex'))
                 } else {
                     return null
@@ -73,4 +84,5 @@ getRequiresHash(requires, sources, modes)
   .catch(error => {
       console.error(error)
       console.error("校验失败")
+      process.exitCode = 1;
   })

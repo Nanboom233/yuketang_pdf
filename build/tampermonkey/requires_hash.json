@@ -2,18 +2,14 @@
     {
         "name": "jspdf",
         "dev": {
-            "jsdelivr": "https://cdn.jsdelivr.net/npm/jspdf@2.4.0/dist/jspdf.umd.js",
-            "jsdelivr_fastly": "https://fastly.jsdelivr.net/npm/jspdf@2.4.0/dist/jspdf.umd.js",
-            "bcecdn_pizyds": "https://rain-classroom-pdf-direct-download.cdn.bcebos.com/npm/jspdf@2.4.0/dist/jspdf.umd.js",
-            "baomitu": "https://lib.baomitu.com/jspdf/2.4.0/jspdf.umd.js",
-            "hash": "sha256=bbc8fde0ce8180d701fb38c0299682e840603e70e38b8343f77e09d92dd4e4c4"
+            "jsdelivr": "https://cdn.jsdelivr.net/npm/jspdf@4.2.1/dist/jspdf.umd.js",
+            "cdnjs": "https://cdnjs.cloudflare.com/ajax/libs/jspdf/4.2.1/jspdf.umd.js",
+            "hash": "sha256=c75a285514652d5a75f0813a6bb5e6d447d7bec2308a9f68cc95584fa5bf68a1"
         },
         "prod": {
-            "jsdelivr": "https://cdn.jsdelivr.net/npm/jspdf@2.4.0/dist/jspdf.umd.min.js",
-            "jsdelivr_fastly": "https://fastly.jsdelivr.net/npm/jspdf@2.4.0/dist/jspdf.umd.min.js",
-            "bcecdn_pizyds": "https://rain-classroom-pdf-direct-download.cdn.bcebos.com/npm/jspdf@2.4.0/dist/jspdf.umd.min.js",
-            "baomitu": "https://lib.baomitu.com/jspdf/2.4.0/jspdf.umd.min.js",
-            "hash": "sha256=e6b6bfd150b911d1e05904a7e03f86265c9c83bfa18e7082b27630aa6330fb92"
+            "jsdelivr": "https://cdn.jsdelivr.net/npm/jspdf@4.2.1/dist/jspdf.umd.min.js",
+            "cdnjs": "https://cdnjs.cloudflare.com/ajax/libs/jspdf/4.2.1/jspdf.umd.min.js",
+            "hash": "sha256=e6551fcdc32f09d6853b2c5126d18d01d9447e0da618a41a11ebeee0f6c20d54"
         }
     },
     {

@@ -1,6 +1,8 @@
 import $ from "jquery";
 import { build_info, env_config, time_object, update_info } from "./common";
 import { SemVer } from "semver";
+import { fetchImageBytes, getDirectJpegSize } from './jpeg_source.js';
+import { canvasToPdfImage } from './pdf_image.js';
 
 //按钮文本刷新
 export function refreshProcessStatus(processStatus){
@@ -15,7 +17,7 @@ export function refreshProcessStatus(processStatus){
 }
 
 //修改自：http://www.jsfun.cn/#textBecomeImg
-//js使用canvas将文字转换成ImageData对象
+//答案保留透明 PNG，不再额外读取一份未被使用的像素。
 export function text2img(text, fontsize, fontcolor){
     var canvas = document.createElement('canvas');
     canvas.height = parseInt(fontsize * 1.2);
@@ -34,8 +36,8 @@ export function text2img(text, fontsize, fontcolor){
     ctx.textBaseline = 'middle';
     ctx.fillText(text, 0, fontsize/2);
 
-    var dta = ctx.getImageData(0, 0, canvas.width, canvas.height);
-    dta.url = canvas.toDataURL();
+    var dta = { kind: 'PNG', width: canvas.width, height: canvas.height, data: canvas.toDataURL('image/png') };
+    canvas.width = canvas.height = 0;
     return dta;
 }
 
@@ -124,20 +126,41 @@ export const url2HTMLImageElement = (url) => new Promise((resolve, reject) => {
 });
 
 /**
- * 将图片链接转化为ImageData对象
+ * 将图片链接转化为 PDF 图像：受限 JPEG 直嵌或浏览器无损转换。
  * @param {string} url 图片链接
- * @return {ImageData} ImageData对象
+ * @return {Promise<Object>} 仅保存编码数据和尺寸
  */
 export async function url2ImgData(url){
-    var img = await url2HTMLImageElement(url);
+    var bytes = await fetchImageBytes(url);
+    var size = bytes && getDirectJpegSize(bytes);
+    var objectURL;
+    var img;
+    if (bytes){
+        try {
+            objectURL = URL.createObjectURL(new Blob([bytes], { type: size ? 'image/jpeg' : '' }));
+            img = await url2HTMLImageElement(objectURL);
+        } catch (err) {
+            bytes = null;
+        } finally {
+            if (objectURL) URL.revokeObjectURL(objectURL);
+        }
+    }
+    // 包括 CSP 不允许 fetch/blob URL 的页面，继续沿用 Image 的加载方式。
+    if (!img) img = await url2HTMLImageElement(url);
+    if (bytes && size && size.width === img.width && size.height === img.height){
+        return { kind: 'JPEG', width: size.width, height: size.height, data: bytes };
+    }
+    bytes = null;
     var canvas = document.createElement('canvas');
     canvas.height = img.height;
     canvas.width = img.width;
     var ctx = canvas.getContext('2d');
     ctx.drawImage(img, 0, 0);
-    var dta = ctx.getImageData(0, 0, canvas.width, canvas.height);
-    dta.url = canvas.toDataURL();
-    return dta;
+    try {
+        return await canvasToPdfImage(canvas);
+    } finally {
+        canvas.width = canvas.height = 0;
+    }
 }
 
 var headerMessage = [];
