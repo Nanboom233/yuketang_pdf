@@ -81,7 +81,11 @@ export function addSVGClass(svg, css){
     return node.outerHTML;
 }
 
+var versionNoticeClaimed = false;
+var versionNoticeKey = `env_config.version_notice.${build_info.version}`;
+
 export function judgeVersionUpdate() {
+    if (versionNoticeClaimed || GM_getValue(versionNoticeKey, false)) return false;
     if (SemVer.neq(env_config.version, build_info.version)){
         if (SemVer.eq(env_config.version, "0.0.0")){
             return "new";
@@ -103,12 +107,15 @@ export var textVersionUpdate = {
 }
 
 export function clearVersionUpdate () {
-    if (judgeVersionUpdate()){
-        env_config.version = build_info.version;
-        return true;
-    } else {
-        return false;
+    var hasUpdate = !!judgeVersionUpdate();
+    // 按版本记录，避免其他标签页写回 last-version 后反复提示。
+    // 必须在显示面板前认领，防止显示过程触发重新挂载。
+    if (!versionNoticeClaimed){
+        versionNoticeClaimed = true;
+        GM_setValue(versionNoticeKey, true);
     }
+    if (env_config.version !== build_info.version) env_config.version = build_info.version;
+    return hasUpdate;
 }
 
 //https://stackoverflow.com/questions/52059596/loading-an-image-on-web-browser-using-promise/52060802

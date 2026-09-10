@@ -1,5 +1,6 @@
 import { url_match } from "./libs/common.js";
 import button_download from "./libs/button_download.js"
+import startReportDownload from './libs/report_download.js';
 
 var realTimeSearchError = {
     count: () => {
@@ -18,6 +19,7 @@ var realTimeSearchError = {
 
 if (!checkFlagMeta()){
     addFlagMeta();
+    startReportDownload();
     console.log("雨课堂课件PDF下载工具：已载入");
     //实时查找PPT窗口
     realTimeSearchError.interval = setInterval(()=>{

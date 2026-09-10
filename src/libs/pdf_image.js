@@ -1,12 +1,8 @@
-import { jsPDF } from 'jspdf';
-
 // 此适配层依赖 processRGBA 的返回结构和 putImage 的 sMask 约定。
-// 版本不匹配时保留公开的 PNG API，不能静默使用未经验证的内部接口。
-const ADAPTER_VERSION = '4.2.1';
+// 根据运行时接口能力选择路径，缺少所需接口时使用公开的 PNG API。
 
 export function canPrepareFlate(){
-    return jsPDF.version === ADAPTER_VERSION &&
-        typeof CompressionStream === 'function' && typeof DecompressionStream === 'function' &&
+    return typeof CompressionStream === 'function' && typeof DecompressionStream === 'function' &&
         typeof Blob === 'function' && typeof Blob.prototype.stream === 'function' &&
         typeof Response === 'function';
 }
@@ -76,7 +72,7 @@ export async function addPdfImage(doc, image, options){
         doc.addImage({ ...options, imageData: image.data, format: image.kind, compression: 'FAST' });
         return;
     }
-    if (jsPDF.version !== ADAPTER_VERSION || typeof doc.processRGBA !== 'function' ||
+    if (typeof doc.processRGBA !== 'function' ||
         !doc.__addimage__ || typeof doc.__addimage__.arrayBufferToBinaryString !== 'function'){
         doc.addImage({ ...options, imageData: await flateToPng(image), format: 'PNG', compression: 'FAST' });
         return;

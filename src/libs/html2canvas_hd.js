@@ -70,16 +70,16 @@ async function render(index, { el_ppts, processStatus }){
 export default async function(){
     console.groupCollapsed("雨课堂课件PDF下载工具：HTML转高清Canvas...");
 
-    var images = [];
+    var RGBAData_ppts = [];
     var el_ppts = document.getElementsByClassName("pizyds_el_ppt");
     refreshProcessStatus("转换HTML...");
     for (let i = 0; i < el_ppts.length; i++){
         var processStatus = `${i+1}/${el_ppts.length}`;
         refreshProcessStatus(`转换HTML(${processStatus})`);
-        images[i] = await render(i, { el_ppts, processStatus });
-        console.log(`雨课堂课件PDF下载工具：${processStatus} - 第${i+1}页 - ${images[i].width}x${images[i].height}`);
+        RGBAData_ppts[i] = await render(i, { el_ppts, processStatus });
+        console.log(`雨课堂课件PDF下载工具：${processStatus} - 第${i+1}页 - ${RGBAData_ppts[i].width}x${RGBAData_ppts[i].height}`);
     }
     console.groupEnd();
     console.log(`雨课堂课件PDF下载工具：完成转换`);
-    return images;
+    return RGBAData_ppts;
 }

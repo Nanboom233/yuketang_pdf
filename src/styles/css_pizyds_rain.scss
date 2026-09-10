@@ -12,3 +12,79 @@
     @import "~bootstrap/scss/popover";
     @import "~bootstrap/scss/forms";
 }
+
+// 新版入口独立作用域，不把 Bootstrap reboot 注入整条宿主标题栏。
+.pizyds-report-controls {
+    position: relative;
+    flex-shrink: 0;
+    margin-right: 16px;
+    font-size: 14px;
+    #pizyds_rain_waiting { display: flex; gap: 8px; align-items: center; }
+    [hidden] { display: none !important; }
+    button {
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        gap: 6px;
+        height: 32px;
+        padding: 0 8px;
+        border: 0;
+        border-radius: 6px;
+        background: transparent;
+        color: #3d7bff;
+        font: inherit;
+        cursor: pointer;
+        &:hover { background: rgba(123, 135, 178, .1); }
+        &:focus-visible { outline: 2px solid #3d7bff; outline-offset: 2px; }
+        &:disabled { cursor: wait; opacity: .6; }
+        svg { width: 16px; height: 16px; }
+    }
+    // 课件列表需要相对定位；配置面板不能随按钮容器 shrink-to-fit。
+    .popover { width: max-content; max-width: min(360px, calc(100vw - 24px)); }
+    #pizyds_rain_running { font-size: 13px; white-space: nowrap; }
+    #pizyds_rain_batch_status { display: inline-block; max-width: 140px; overflow: hidden; text-overflow: ellipsis; vertical-align: middle; }
+    .pizyds-courseware-list {
+        position: absolute;
+        right: 0;
+        top: calc(100% + 8px);
+        z-index: 1070;
+        width: min(380px, calc(100vw - 24px));
+        max-height: min(480px, calc(100vh - 72px));
+        overflow-y: auto;
+        padding: 14px;
+        background: white;
+        border: 1px solid #ccc;
+        border-radius: 6px;
+        box-shadow: 0 2px 8px #0002;
+        color: #333;
+        white-space: normal;
+        .pizyds-courseware-notice { margin: 6px 0; color: #a43b00; }
+        .pizyds-courseware-item { display: flex; align-items: center; justify-content: space-between; gap: 12px; border-bottom: 1px solid #eee; padding: 8px 0; }
+        .pizyds-courseware-item > span { overflow-wrap: anywhere; min-width: 0; }
+        button { flex-shrink: 0; }
+    }
+}
+.lesson-header.pizyds-report-header {
+    .lesson-header-left { min-width: 0; overflow: hidden; }
+    .lesson-title { min-width: 0; }
+    > .box-start { flex-shrink: 0; }
+}
+.pizyds-report-overlay {
+    position: fixed;
+    z-index: 1000;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 16px;
+    background: rgba(255, 255, 255, .88);
+    color: #333;
+    font: 15px Arial, sans-serif;
+    button { padding: 8px 16px; cursor: pointer; }
+}
+@media (max-width: 1099px) {
+    .lesson-header.pizyds-report-header .lesson-time { display: none; }
+}
+@media (max-width: 799px) {
+    .pizyds-report-controls .pizyds-download-label { display: none; }
+}

@@ -7,7 +7,6 @@ const crypto = require('crypto');
 const httpsProxyAgent = require('https-proxy-agent');
 
 
-const sources = ["jsdelivr", "jsdelivr_fastly", "bcecdn_pizyds", "baomitu", "cdnjs"]
 const modes = ["dev", "prod"]
 
 const instance = axios.create({
@@ -19,6 +18,14 @@ const instance = axios.create({
 const allEqual = arr => arr.every( v => v === arr[0] )
 
 const requires = JSON.parse(fs.readFileSync(path.resolve(__dirname, './tampermonkey/requires.cdnjs.json'), 'utf-8'));
+const sources = [];
+for (const r of requires) {
+    for (const mode of modes) {
+        for (const source of Object.keys(r[mode])) {
+            if (r[mode][source] != null && !sources.includes(source)) sources.push(source);
+        }
+    }
+}
 
 async function getRequiresHash(requires, sources, modes) {
     let requires_hash = []
@@ -34,9 +41,6 @@ async function getRequiresHash(requires, sources, modes) {
                           let text = data.toString('utf8');
                           if (data.length < 1000 || /^\s*(?:404:|<!doctype|<html)/i.test(text)) {
                               throw new Error(`Invalid JavaScript response: ${url}`);
-                          }
-                          if (r.name === 'jspdf' && !text.includes('Version 4.2.1')) {
-                              throw new Error(`Unexpected jsPDF version: ${url}`);
                           }
                           return data;
                       })
@@ -64,7 +68,7 @@ async function getRequiresHash(requires, sources, modes) {
         requires_hash.push({
             "name": r.name,
             ...modes.reduce((prev, mode) => ({...prev, [mode]: {
-                ...sources.reduce((prev, source) => (r[mode][source] != null ? {...prev, [source]: r[mode][source]} : prev), {}),
+                ...Object.keys(r[mode]).reduce((prev, source) => (r[mode][source] != null ? {...prev, [source]: r[mode][source]} : prev), {}),
                 "hash": `sha256=${hash_mode_arr[mode]}`
             }}), {})
         })

@@ -16,7 +16,7 @@ import $ from "jquery";
  * @param {Element} buttonEle 需要注入悬浮窗的按钮
  * @return {void}
  */
-export default function(buttonEle){
+export default function(buttonEle, container = $(".pizyds_rain")[0]){
     var form_templ = ejs_conf_panel;
     var form_html = () => ejs.render(form_templ, {
         BUILD_VERSION: build_info.version,
@@ -30,8 +30,7 @@ export default function(buttonEle){
         GITHUB_SVG: adjustSVGSize(github_svg, 12),
         CODE_SVG: adjustSVGSize(code_svg, 12)
     });
-    var container = $(".pizyds_rain")[0];
-    $(container).off();
+    $(container).off('.pizydsRain');
 
     // eslint-disable-next-line no-unused-vars
     $(buttonEle).popover({
@@ -41,13 +40,14 @@ export default function(buttonEle){
         html: true,
         sanitize: false,
         placement: "bottom",
+        popperConfig: config => container.classList.contains('pizyds-report-controls') ? { ...config, placement: 'bottom-end' } : config,
         customClass: "pizyds_rain_conf_popover",
         trigger: "click",
-        offset: [-80, 8]
+        offset: container.classList.contains('pizyds-report-controls') ? [0, 8] : [-80, 8]
     })
 
-    $("html").off();
-    $("html").on('click', function (e) {
+    $("html").off('.pizydsRain');
+    $("html").on('click.pizydsRain', function (e) {
         var popoverEle = $('.pizyds_rain_conf_popover')[0];
         if (
           time_object.popover_can_hide < Date.now() && 
@@ -57,19 +57,19 @@ export default function(buttonEle){
           !$(popoverEle).is(e.target) && 
           $(popoverEle).has(e.target).length == 0
         ) {
-            $(popoverEle).popover('hide');
+            $(buttonEle).popover('hide');
         }
     });
 
-    $(container).on('input change', "#pizyds_rain_answer_font_size_range", function(){
+    $(container).on('input.pizydsRain change.pizydsRain', "#pizyds_rain_answer_font_size_range", function(){
         $("#pizyds_rain_answer_font_size_show").html(this.value);
     })
 
-    $(container).on('change', "#pizyds_rain_answer_font_size_range", function(){
+    $(container).on('change.pizydsRain', "#pizyds_rain_answer_font_size_range", function(){
         ans_config.fontSize = this.value;
     })
 
-    $(container).on('change', "#pizyds_rain_answer_switch", function(){
+    $(container).on('change.pizydsRain', "#pizyds_rain_answer_switch", function(){
         ans_config.enabled = this.checked;
         if (!ans_config.enabled) {
             $("#pizyds_rain_answer_font_size_field")
@@ -84,21 +84,20 @@ export default function(buttonEle){
         }
     })
 
-    $(container).on('click', "#pizyds_rain_answer_font_size_default", function(){
+    $(container).on('click.pizydsRain', "#pizyds_rain_answer_font_size_default", function(){
         $("#pizyds_rain_answer_font_size_range")
           .prop("value", ans_config.$fontSize)
           .trigger("change");
     })
 
-    $(container).on('change', "#pizyds_rain_drm_switch", function(){
+    $(container).on('change.pizydsRain', "#pizyds_rain_drm_switch", function(){
         drm_config.enabled = this.checked;
     })
 
     //更新提示
-    if (judgeVersionUpdate()){
-        refreshHeaderMessage(textVersionUpdate[judgeVersionUpdate()]);
-        clearVersionUpdate();
-    }
+    var updateType = judgeVersionUpdate();
+    clearVersionUpdate();
+    if (updateType) refreshHeaderMessage(textVersionUpdate[updateType]);
 }
 
 /**

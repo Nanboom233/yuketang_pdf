@@ -5,7 +5,7 @@ import { refreshProcessStatus, refreshHeaderMessage, url2ImgData } from "./publi
  * @param url_slides 图片链接列表
  * @return {Promise}
  */
-export default async function (url_slides){
+export default async function (url_slides, { checkActive = () => {}, showErrors = true } = {}){
     var images = new Array(url_slides.length);
     var finished_num = 0;
     var next_index = 0;
@@ -19,14 +19,20 @@ export default async function (url_slides){
         while (!failed && next_index < url_slides.length){
             let i = next_index++;
             try {
+                checkActive();
                 images[i] = await url2ImgData(url_slides[i]);
+                checkActive();
                 if (!failed) count_finished_num(i);
             } catch (err) {
                 if (!failed){
                     failed = true;
+                    checkActive();
                     console.error(err);
-                    refreshProcessStatus(false);
-                    refreshHeaderMessage(`图像处理出错（第${i+1}页：${url_slides[i]}）`, 'Warn');
+                    if (showErrors){
+                        refreshProcessStatus(false);
+                        refreshHeaderMessage(`图像处理出错（第${i+1}页：${url_slides[i]}）`, 'Warn');
+                    }
+                    throw new Error(`图像处理出错（第${i+1}页），请检查网络或刷新报告后重试`);
                 }
                 throw err;
             }

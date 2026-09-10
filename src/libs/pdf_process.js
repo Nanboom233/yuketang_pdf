@@ -11,7 +11,8 @@ import { addPdfImage } from './pdf_image.js';
  * @param answer_list 答案列表
  * @return {Promise}
  */
-export default async function(img_list, filename, answer_list){
+export default async function(img_list, filename, answer_list, { checkActive = () => {}, answerConfig = ans_config, drmConfig = drm_config } = {}){
+    checkActive();
     console.groupCollapsed("雨课堂课件PDF下载工具：生成PDF...");
     var doc = new jsPDF({
         orientation: "landscape",
@@ -19,15 +20,17 @@ export default async function(img_list, filename, answer_list){
         format: [img_list[0].width, img_list[0].height],
         hotfixes: ["px_scaling"]
     });
-    injectXMP(doc, [img_list[0].width, img_list[0].height]);
+    injectXMP(doc, [img_list[0].width, img_list[0].height], drmConfig);
 
     for (let i = 0; i < img_list.length; i++){
+        checkActive();
         i > 0 && doc.addPage([img_list[i].width, img_list[i].height], "landscape");
-        await addPPT(i, doc, img_list, answer_list);
+        await addPPT(i, doc, img_list, answer_list, answerConfig);
         refreshProcessStatus(`生成PDF(${i+1}/${img_list.length})`);
         await sleep(10);
     }
     console.groupEnd();
+    checkActive();
     doc.save(filename);
     console.log(`雨课堂课件PDF下载工具：完成下载`);
     console.log(`雨课堂课件PDF下载工具：https://www.pizyds.com/rain-classroom-pdf-direct-download/`);
@@ -40,7 +43,7 @@ export default async function(img_list, filename, answer_list){
  * @param {Array} answer_list 答案列表
  * @return {Promise}
  */
-async function addPPT(index, doc, img_list, answer_list){
+async function addPPT(index, doc, img_list, answer_list, ans_config){
     console.log(`雨课堂课件PDF下载工具：第 ${index+1} 页 - PPT`);
     await addPdfImage(doc, img_list[index], {
         x: 0,
@@ -69,7 +72,7 @@ async function addPPT(index, doc, img_list, answer_list){
  * @param {Array} size 当前 PPT 页面尺寸
  * @return {void}
  */
-function injectXMP(doc, size){
+function injectXMP(doc, size, drm_config){
     if (drm_config.enabled){
         console.log(`雨课堂课件PDF下载工具：注入数字版权信息`);
         var userID = generateUserID();
