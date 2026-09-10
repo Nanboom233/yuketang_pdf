@@ -34,6 +34,7 @@ function createNewChromeDevelopApi(template){
 var BannerPlugin = new webpack.BannerPlugin({
     raw: true,
     entryOnly: true,
+    stage: webpack.Compilation.PROCESS_ASSETS_STAGE_OPTIMIZE_TRANSFER,
     banner: () => {
         var str = fs.readFileSync(path.resolve(__dirname, './template.ejs'), 'utf-8');
         var template = ejs.compile(str);

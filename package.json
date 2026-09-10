@@ -4,7 +4,6 @@
   "description": "在雨课堂页面自动生成PDF版本课件提供下载",
   "private": true,
   "scripts": {
-    "postinstall": "patch-package",
     "start": "webpack serve --config ./build/webpack.dev.js",
     "watch": "webpack --watch --config ./build/webpack.dev.js",
     "build": "webpack --config ./build/webpack.prod.js && npm run replace:projectRootPath",
@@ -28,14 +27,13 @@
     "axios": "^0.27.2",
     "css-loader": "^5.2.6",
     "https-proxy-agent": "^5.0.1",
-    "patch-package": "^6.4.7",
     "postcss": "^8.3.5",
     "postcss-loader": "^6.1.1",
     "replace-in-file": "^6.3.2",
     "sass": "^1.35.2",
     "sass-loader": "^12.1.0",
     "style-loader": "^3.0.0",
-    "webpack": "^5.44.0",
+    "webpack": "^5.110.3",
     "webpack-cli": "^4.7.2",
     "webpack-dev-server": "^3.11.2",
     "webpack-merge": "^5.8.0"
