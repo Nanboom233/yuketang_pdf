@@ -1,6 +1,6 @@
 {
   "name": "rain-classroom-pdf-direct-download",
-  "version": "1.3.5",
+  "version": "1.4.0",
   "description": "在雨课堂页面自动生成PDF版本课件提供下载",
   "private": true,
   "scripts": {
@@ -13,15 +13,18 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/PillarsZhang/Rain-Classroom-PDF-Direct-Download.git"
+    "url": "git+https://github.com/Nanboom233/yuketang_pdf.git"
   },
   "keywords": [],
   "author": "Pillars Zhang <z@pizyds.com> (https://www.pizyds.com/)",
+  "contributors": [
+    "MinamiPumpkin <pumpkin@nanboom.top>"
+  ],
   "license": "MIT",
   "bugs": {
-    "url": "https://github.com/PillarsZhang/Rain-Classroom-PDF-Direct-Download/issues"
+    "url": "https://github.com/Nanboom233/yuketang_pdf/issues"
   },
-  "homepage": "https://github.com/PillarsZhang/Rain-Classroom-PDF-Direct-Download#readme",
+  "homepage": "https://github.com/Nanboom233/yuketang_pdf#readme",
   "devDependencies": {
     "autoprefixer": "^10.2.6",
     "axios": "^0.27.2",
@@ -44,7 +47,6 @@
     "bootstrap-icons": "^1.5.0",
     "ejs": "^3.1.6",
     "html2canvas": "^0.5.0-beta4",
-    "hybrid-crypto-js": "^0.2.4",
     "jquery": "^3.6.0",
     "jspdf": "4.2.1",
     "uuid": "^3.4.0"

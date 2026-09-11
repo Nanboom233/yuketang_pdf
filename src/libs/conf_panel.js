@@ -2,7 +2,7 @@ import ejs_conf_panel from "../ejs/ejs_pizyds_rain_conf_panel.ejs";
 import ejs_conf_title from "../ejs/ejs_pizyds_rain_conf_title.ejs";
 import ejs from "ejs/ejs.js"
 import 'bootstrap/js/dist/popover';
-import { build_info, ans_config, drm_config, time_object } from "./common";
+import { build_info, ans_config, time_object } from "./common";
 import { adjustSVGSize, judgeVersionUpdate, textVersionUpdate, clearVersionUpdate, getHeaderMessage, refreshHeaderMessage } from "./public";
 import '../styles/css_pizyds_rain.scss';
 import default_svg from 'bootstrap-icons/icons/arrow-return-left.svg'
@@ -22,7 +22,6 @@ export default function(buttonEle, container = $(".pizyds_rain")[0]){
         BUILD_VERSION: build_info.version,
         BUILD_TIME: formatDate(new Date(build_info.timestamp)),
         ANS_ENABLED: ans_config.enabled,
-        DRM_ENABLED: drm_config.enabled,
         FONT_SIZE: ans_config.fontSize,
         HEADER_MESSAGE: getHeaderMessage(),
         DEFAULT_SVG: adjustSVGSize(default_svg, 12),
@@ -88,10 +87,6 @@ export default function(buttonEle, container = $(".pizyds_rain")[0]){
         $("#pizyds_rain_answer_font_size_range")
           .prop("value", ans_config.$fontSize)
           .trigger("change");
-    })
-
-    $(container).on('change.pizydsRain', "#pizyds_rain_drm_switch", function(){
-        drm_config.enabled = this.checked;
     })
 
     //更新提示

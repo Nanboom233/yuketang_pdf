@@ -5,7 +5,7 @@ import get_html_slides from './get_html_slides.js';
 import html2canvas_hd from './html2canvas_hd.js';
 import get_answers from './get_answers.js';
 import { refreshProcessStatus, refreshHeaderMessage, sleep } from './public.js';
-import { ans_config, drm_config } from './common.js';
+import { ans_config } from './common.js';
 
 var active_downloads = new WeakSet();
 
@@ -35,8 +35,7 @@ export default function (el_dialog, url_type = 1){
                         throw new Error('报告或课件已关闭或切换，已取消下载');
                     }
                 };
-                var settings = { checkActive, answerConfig: { ...ans_config, enabled: ans_config.enabled, fontSize: ans_config.fontSize },
-                    drmConfig: { enabled: drm_config.enabled } };
+                var settings = { checkActive, answerConfig: { ...ans_config, enabled: ans_config.enabled, fontSize: ans_config.fontSize } };
                 var buttons = Array.from(el_dialog.querySelectorAll('#pizyds_rain_download_button, #pizyds_rain_config_button'))
                     .map(el => ({ el, disabled: el.disabled }));
                 buttons.forEach(({ el }) => { el.disabled = true; });

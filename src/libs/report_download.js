@@ -2,7 +2,7 @@ import $ from 'jquery';
 import conf_panel from './conf_panel.js';
 import { reportContext, collectReport, coursewareSignature, coursewareContent } from './page_adapter.js';
 import { refreshProcessStatus, refreshHeaderMessage } from './public.js';
-import { ans_config, drm_config } from './common.js';
+import { ans_config } from './common.js';
 import image_process from './image_process.js';
 import pdf_process from './pdf_process.js';
 import downloadIcon from 'bootstrap-icons/icons/file-earmark-pdf.svg';
@@ -109,8 +109,7 @@ export default function startReportDownload(){
             root.querySelectorAll('button').forEach(button => { button.disabled = true; });
             cancelButton.disabled = false;
             batchStatus.textContent = '';
-            var settings = { answerConfig: { ...ans_config, enabled: ans_config.enabled, fontSize: ans_config.fontSize },
-                drmConfig: { enabled: drm_config.enabled }, checkActive };
+            var settings = { answerConfig: { ...ans_config, enabled: ans_config.enabled, fontSize: ans_config.fontSize }, checkActive };
             var failed = false;
             var completed = 0, selectedCount = 0, activeGroup;
             try {

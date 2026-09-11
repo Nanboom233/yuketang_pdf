@@ -30,7 +30,6 @@ module.exports = {
     externals: {
         jspdf: 'jspdf',
         html2canvas: 'html2canvas',
-        // 'hybrid-crypto-js/web/hybrid-crypto.js': 'Crypt',
         jquery: 'jQuery'
     }
 };

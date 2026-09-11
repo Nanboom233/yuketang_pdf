@@ -28,14 +28,6 @@ export var ans_config = {
 };
 autoGMValue(ans_config, "ans_config");
 
-export var drm_config = {
-    _enabled: true,
-    text: {
-        enabled: "DRM"
-    }
-};
-autoGMValue(drm_config, "drm_config");
-
 //网址分类规则
 export var url_match = [{
     reg: /https:\/\/.*\.yuketang\.cn\/v2\/web\/student\/.*/,
@@ -83,6 +75,7 @@ export var time_object = {
 }
 
 var update_info_list = {
+    '1.4.0': `移除 DRM 设置、RSA/AES 加密、PDF 元数据注入及相关依赖，改为显示版权提醒；同步更新项目维护信息与 GitHub 地址`,
     '1.3.5': `旧版课堂页面支持自动等待习题并附加答案，采集失败时提示重试，下载后恢复页面状态`,
     '1.3.4': `支持新版课堂报告页，按实际课件提供单份下载和全部分别下载，自动附加习题答案，保留旧版兼容`,
     '1.3.3': `优化图片与 PDF 生成速度，升级 jsPDF，保留特殊图片及旧浏览器的转换回退`,
