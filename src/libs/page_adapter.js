@@ -51,7 +51,7 @@ function coursewareFilenames(groups){
     });
 }
 
-/** 打印菜单封面是分组起点；存在跳页或未开启打印菜单时自动容错合并导出。 */
+/** 打印菜单封面是唯一且有序的分组起点；存在跳页时正常分组，菜单异常或缺失时整体回退单份导出。 */
 export function reportCoursewares(doc, slides, fallbackTitle){
     if (!slides.length) {
         throw new Error('没有提取到完整课件，请等待课件加载后重试');
@@ -68,55 +68,36 @@ export function reportCoursewares(doc, slides, fallbackTitle){
         return singleFallback();
     }
 
+    var seenCoverKeys = new Set();
     var groups = [];
-    var prevStart = -1;
     for (var item of menu) {
-        var title = nodeText(item.querySelector('.ppt-title')) || fallbackTitle || '雨课堂课件';
+        var title = nodeText(item.querySelector('.ppt-title'));
         var img = item.querySelector('.ppt-cover img');
         var value = img && (img.getAttribute('data-src') || img.getAttribute('src'));
-        if (!value) continue;
+        if (!title || !value) return singleFallback();
+
         var coverKey = imageKey(value, doc.baseURI);
-        var idx = slides.findIndex((slide, i) => i > prevStart && slide.key === coverKey);
-        if (idx < 0) idx = slides.findIndex(slide => slide.key === coverKey);
-        if (idx >= 0) {
-            prevStart = idx;
-            groups.push({ title, coverKey, startIndex: idx });
-        }
+        if (seenCoverKeys.has(coverKey)) return singleFallback();
+        seenCoverKeys.add(coverKey);
+
+        var matches = slides.filter(slide => slide.key === coverKey);
+        if (matches.length !== 1) return singleFallback();
+
+        groups.push({ title, coverKey, startIndex: matches[0].index });
     }
 
-    if (!groups.length) {
+    if (groups[0].startIndex !== 0) {
         return singleFallback();
     }
 
-    groups.sort((a, b) => a.startIndex - b.startIndex);
-    var deduped = [];
-    var seenStarts = new Set();
-    for (var g of groups) {
-        if (!seenStarts.has(g.startIndex)) {
-            seenStarts.add(g.startIndex);
-            deduped.push(g);
-        }
-    }
-    groups = deduped;
-
-    if (groups[0].startIndex > 0) {
-        groups.unshift({
-            title: (fallbackTitle || '雨课堂课件') + '_前序',
-            coverKey: slides[0].key,
-            startIndex: 0
-        });
-    }
-
-    var validGroups = [];
-    groups.forEach((group, i) => {
+    for (var i = 0; i < groups.length; i++) {
         var end = i + 1 < groups.length ? groups[i + 1].startIndex : slides.length;
-        group.pageCount = end - group.startIndex;
-        if (group.pageCount > 0) {
-            validGroups.push(group);
-        }
-    });
+        var pageCount = end - groups[i].startIndex;
+        if (pageCount <= 0) return singleFallback();
+        groups[i].pageCount = pageCount;
+    }
 
-    return validGroups.length ? coursewareFilenames(validGroups) : singleFallback();
+    return coursewareFilenames(groups);
 }
 
 export function coursewareSignature(result){
@@ -225,6 +206,7 @@ export async function collectReport(context, { withAnswers, withCoursewares = fa
             .map(el => ({ el, top: el.scrollTop, left: el.scrollLeft, className: el.className })) };
     var previousRow = -1;
     var touchedDetails = false;
+    var touchedPrintMenu = false;
     var failure;
     try {
         progress('整理课件…');
@@ -244,14 +226,26 @@ export async function collectReport(context, { withAnswers, withCoursewares = fa
             try {
                 var print = await wait(() => doc.querySelector('.print-btn'), '等待打印课件按钮超时', false, printTimeout);
                 if (print.querySelector('.icon-jiantoudan-xiangxia,.icon-jiantoudan-xiangshang')){
+                    touchedPrintMenu = true;
                     await setPrintOpen(true, false, printTimeout);
-                    await wait(() => doc.querySelector('.print-btn .ppt-list-item'), '打印课件列表加载超时', false, printTimeout);
+                    var menuLast = '', menuStableAt = Date.now();
+                    await wait(() => {
+                        var items = Array.from(doc.querySelectorAll('.print-btn .ppt-list-item'));
+                        var sig = items.map(el => {
+                            var t = nodeText(el.querySelector('.ppt-title'));
+                            var img = el.querySelector('.ppt-cover img');
+                            var v = img ? (img.getAttribute('data-src') || img.getAttribute('src') || '') : '';
+                            return `${t}\0${v}`;
+                        }).join('|');
+                        if (sig !== menuLast){ menuLast = sig; menuStableAt = Date.now(); }
+                        return items.length > 0 && Date.now() - menuStableAt >= 300;
+                    }, '打印课件列表加载超时', false, printTimeout);
                 }
             } catch (err) {
                 check();
             }
             coursewares = reportCoursewares(doc, slides, context.filename.replace(/\.pdf$/i, ''));
-            if (!original.printOpen && doc.querySelector('.print-btn')) {
+            if (touchedPrintMenu && !original.printOpen) {
                 try { await setPrintOpen(false, false, printTimeout); } catch (err) { check(); }
             }
         }
@@ -314,8 +308,18 @@ export async function collectReport(context, { withAnswers, withCoursewares = fa
             try {
                 await select(TABS, original.tab, true);
                 await select(filtersFor(original.tab), original.filter, true);
-                if (withCoursewares && doc.querySelector('.print-btn')) {
-                    try { await setPrintOpen(original.printOpen, true, Math.min(timeout, 2500)); } catch (err) { /* ignore menu restore error */ }
+                if (touchedPrintMenu) {
+                    await setPrintOpen(original.printOpen, true);
+                    await new Promise(resolve => setTimeout(resolve, 150));
+                    check(true);
+                    if (printOpen() !== original.printOpen) {
+                        await setPrintOpen(original.printOpen, true);
+                        await new Promise(resolve => setTimeout(resolve, 150));
+                        check(true);
+                        if (printOpen() !== original.printOpen) {
+                            throw new Error('无法恢复打印课件菜单状态');
+                        }
+                    }
                 }
                 for (let saved of original.scroll){
                     let el = saved.el.isConnected ? saved.el : Array.from(doc.querySelectorAll('[class]'))
