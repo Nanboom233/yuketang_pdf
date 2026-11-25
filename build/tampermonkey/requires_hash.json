@@ -16,10 +16,12 @@
         "name": "html2canvas",
         "dev": {
             "baomitu": "https://lib.baomitu.com/html2canvas/0.5.0-beta4/html2canvas.js",
+            "cdnjs": "https://cdnjs.cloudflare.com/ajax/libs/html2canvas/0.5.0-beta4/html2canvas.js",
             "hash": "sha256=1338d93cfeec38243eba017f53cc76547dcf12f8373458e2b3f769c2880ddd3d"
         },
         "prod": {
             "baomitu": "https://lib.baomitu.com/html2canvas/0.5.0-beta4/html2canvas.min.js",
+            "cdnjs": "https://cdnjs.cloudflare.com/ajax/libs/html2canvas/0.5.0-beta4/html2canvas.min.js",
             "hash": "sha256=c3aff5074bb0929477b97d18530de4db3cc79eaeb10cd7556472c8773f3157a2"
         }
     },
@@ -30,6 +32,7 @@
             "jsdelivr_fastly": "https://fastly.jsdelivr.net/npm/jquery@3.6.0/dist/jquery.js",
             "bcecdn_pizyds": "https://rain-classroom-pdf-direct-download.cdn.bcebos.com/npm/jquery@3.6.0/dist/jquery.js",
             "baomitu": "https://lib.baomitu.com/jquery/3.6.0/jquery.js",
+            "cdnjs": "https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.js",
             "hash": "sha256=1fe2bb5390a75e5d61e72c107cab528fc3c29a837d69aab7d200e1dbb5dcd239"
         },
         "prod": {
@@ -37,6 +40,7 @@
             "jsdelivr_fastly": "https://fastly.jsdelivr.net/npm/jquery@3.6.0/dist/jquery.min.js",
             "bcecdn_pizyds": "https://rain-classroom-pdf-direct-download.cdn.bcebos.com/npm/jquery@3.6.0/dist/jquery.min.js",
             "baomitu": "https://lib.baomitu.com/jquery/3.6.0/jquery.min.js",
+            "cdnjs": "https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js",
             "hash": "sha256=ff1523fb7389539c84c65aba19260648793bb4f5e29329d2ee8804bc37a3fe6e"
         }
     }
